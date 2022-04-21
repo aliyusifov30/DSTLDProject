@@ -1,0 +1,23 @@
+@media only screen and (max-width: 427px) {
+  #login .container .login-side {
+    width: 100%;
+  }
+  #login .container .form-input, #login .container button {
+    width: 100% !important;
+    padding: 0px 10px !important;
+  }
+  #login .container p {
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 357px) {
+  #register .container .form-input, #register .container button {
+    width: 175px !important;
+    padding: 0px 10px !important;
+  }
+  #register .container button {
+    padding: 5px !important;
+  }
+}
+/*# sourceMappingURL=register-responsive.css.map */

@@ -1,0 +1,91 @@
+#MyAccount{
+    .container{
+        padding: 0px 100px;
+        .row{
+            .title{
+                a{
+                    font-size: 12px;
+                    color:black;
+                    margin: 40px 0px;
+                    display: block;
+                }
+                h2,p{
+                    font-family: RecifeRegular;
+                }
+                h2{
+                    font-size: 30px;
+                    margin: 40px 0px;
+                }
+                p{
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 60px 0px;
+                }
+            }
+            .my-orders{
+                span{
+                    font-size: 12px;
+                    padding: 10px 0px;
+                    display: block;
+                    border-bottom: 1px solid gray;
+                }
+                p{
+                    margin: 30px 0px;
+                    font-size: 14px;
+                }
+            }
+            .primary-address{
+                margin-left: 80px;
+                .primary-address-title{
+                    font-size: 12px;
+                    padding: 10px 0px;
+                    border-bottom: 1px solid gray;
+                }
+                .about-box{
+                    margin: 20px 0px;
+                    p{
+                        font-size: 16px;
+                    }
+                    .account-address{
+                        margin: 10px 0px;
+                    }
+                }
+                .btn{
+                    width:200px;
+                }
+            }
+        }
+        .address{
+            margin-bottom: 100px;
+        }
+    }
+}
+
+@media only screen and (max-width:992px) {
+    
+    #MyAccount{
+        .container{
+            padding: 0px 20px;
+            h2{
+                font-size: 20px !important;
+            }
+            .primary-address{
+                margin-left: 0px !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:768px) {
+    
+    #MyAccount{
+        .container{
+            padding: 0px 20px;
+            h2{
+                font-size: 20px !important;
+            }
+        }
+    }
+}

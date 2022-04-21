@@ -1,0 +1,16 @@
+#faq {
+  padding: 40px 100px;
+}
+
+@media only screen and (max-width: 1036px) {
+  #faq {
+    padding: 40px 50px;
+  }
+}
+
+@media only screen and (max-width: 641px) {
+  #faq {
+    padding: 40px 5px;
+  }
+}
+/*# sourceMappingURL=faq.css.map */

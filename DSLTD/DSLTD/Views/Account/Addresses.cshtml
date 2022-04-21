@@ -1,0 +1,106 @@
+﻿
+
+@model List<Address>
+
+@{ 
+    int count = 0;
+}
+
+<main>
+
+    <section id="addresses" class="main">
+        <div class="container">
+            <div class="action row">
+                <div class="col-lg-12">
+                    <a asp-action="profile" asp-controller="account" class="back-to-account"> <i class="fas fa-angle-left"></i> Back to Account</a>
+                </div>
+            </div>
+            <div class="title row">
+                <div class="col-lg-12">
+                    <h2>My Addresses</h2>
+                    @if (Model.Any(x => x.AppUser.AddressLimit >= 3))
+                    {
+                        <a asp-action="createAddress" data-bs-toggle="modal" data-bs-target="#exampleModal" style="pointer-events: none;opacity:0.5;" class="btn btn-black-white btn-modal">ADD A NEW ADDRESS</a>
+                    }
+                    else
+                    {
+                        <a asp-action="createAddress" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-black-white btn-modal">ADD A NEW ADDRESS</a>
+                    }
+                </div>
+            </div>
+            <div class="row">
+
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <div class="address-box col-lg-4 col-md-6 col-sm-12 col-12" style="order:@(item.IsMain?"1":"2")">
+                            <div class="address-title">
+                                Address @count @(item.IsMain?"| Main Address":"")
+                            </div>
+                            <div class="about-address">
+                                <div class="address">
+                                    @item.AppUser.FullName
+                                </div>
+                                <div class="another">
+                                    <p>@item.State</p>
+                                    <p>@item.Country</p>
+                                    <p>@item.City</p>
+                                    <p>@item.Aparment</p>
+                                    <p>@item.Phone</p>
+                                    <p>@item.ZipCode</p>
+                                </div>
+                                <div class="buttons">
+                                    <div class="underline-hover-item">
+                                        <a asp-action="editAddress" asp-route-id="@item.Id" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-modal">Edit <div class="underline-hover"></div></a>
+                                    </div>
+                                    <div class="underline-hover-item">
+                                        <a asp-action="DeleteAddress" asp-route-id="@item.Id">Delete <div class="underline-hover"></div></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <section id="address-modal">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+@section Scripts{ 
+
+    <script>
+        $(function () {
+
+            $(document).on("click", ".btn-modal", function () {
+
+                let url = $(this).attr("href")
+                console.log(url)
+                //let ac = $(this).attr("dat-ac");
+                //let id = $(this).attr("data-id");
+
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        $("#exampleModal .modal-content").html(data)
+                        console.log(data);
+                    })
+                $("#exampleModal").modal("show")
+            })
+        })
+    </script>
+}

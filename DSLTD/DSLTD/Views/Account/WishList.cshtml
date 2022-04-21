@@ -1,0 +1,98 @@
+﻿
+@model List<WishListViewModel>
+
+@{
+    ViewData["Title"] = "WishList";
+}
+
+
+<main>
+
+    @if (Model.Count == 0)
+    {
+        <section id="empty">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex flex-column">
+                        <p>WishList is Empty</p>
+                        <a asp-action="index" asp-controller="product" asp-route-title="All Products" class="btn btn-black-white p-1" style="width:155px;">Return Products</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section id="wishlist">
+            <div class="container">
+                <div class="row">
+                    <div class="table-div col-lg-12">
+                        <table class="table">
+                            @*<thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Added Date </th>
+                                    <th scope="col">Remove</th>
+                                    <th scope="col">Add to Cart</th>
+                                </tr>
+                            </thead>*@
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="remove">
+                                            <a href="" class="" >
+                                                <i class="bi bi-x remove-wishlist" data-id="@item.ProductId" data-colorId="@(item.ColorId)"></i>
+                                            </a>
+                                        </td>
+                                        <td class="product d-flex">
+                                            <a asp-action="detail" asp-controller="product" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId">
+                                                <div class="image">
+                                                    <img src="~/uploads/products/@item.PosterImage" alt="">
+                                                </div>
+                                            </a>
+                                            <a asp-action="detail" asp-controller="product" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" class="mx-3">
+                                                <div class="text">
+                                                    <h4 style="font-size: 16px;">@item.Name</h4>
+                                                    @*<p>Size : </p>*@
+                                                </div>
+                                            </a>
+                                        </td>
+
+                                        <td class="black-price">
+                                            @if (item.Discount> 0)
+                                            {
+                                                <span class="red-text text-line px-2" style="font-size:15px;" >
+                                                    @item.SalePrice
+                                                </span>
+                                                <span class="font-12" style="font-size:15px;">
+                                                    @((item.SalePrice - (item.SalePrice / 100) * item.Discount).ToString("#.00"))
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="font-12 px-1">
+                                                    @item.SalePrice
+                                                </span>
+                                            }
+                                        </td>
+
+                                        <td>
+                                            <form>
+                                                <a asp-action="detail" asp-controller="product" asp-route-Id="@item.ProductId" asp-route-colorId="@item.ColorId" class="btn-black-white">Go to Detail</a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+</main>
+
+

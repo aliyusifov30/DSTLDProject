@@ -1,0 +1,87 @@
+
+@media only screen and (max-width:1140px){
+
+    #product-detail{
+        .container{
+            padding: 0px 50px !important;
+            .product-image{
+                img{
+                    width: 90px !important;
+                    height: 112px !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:666px){
+
+    #product-detail{
+        .container{
+            .row{
+                .help-item{
+                    width: 100% !important;
+                    .help-side{
+                        textarea{
+                            width: 100% !important;
+                        }
+                    }
+                }
+                .item{
+                    width: 100% !important;
+                    .checkout-side{
+                        width: 100%;
+                    }
+                    .checkout-button{
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:578px){
+
+    #product-detail{
+        .container{
+            padding: 0px 5px !important;
+            .man-table-head{
+                display: none !important;
+            }
+            .man-table-body{
+                .quantity-body,.price-body{
+                    display: none !important;
+                }
+                .product-body{
+                    width: 100% !important;
+                }
+                .quantity-body-responsive,.price-body-responsive{
+                    display: block !important;
+                }
+                .product-body{
+                    position: relative;
+                    .quantity-body-responsive{
+                        .button-item{
+                            .button{
+                                position:absolute;
+                                top: 83px;
+                                left: 97px;
+                            }
+                        }
+                    }
+                    .product-about{
+                        display: flex;
+                        max-width: 80%;
+                        white-space: nowrap;
+                        overflow: hidden !important;
+                        text-overflow: ellipsis;
+                        padding: 0px 10px !important;
+                        justify-content: flex-start !important;
+                    }
+                }
+            }
+        }
+    }
+}
+

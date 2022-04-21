@@ -1,0 +1,44 @@
+
+
+#notfound{
+    .container{
+        .row{
+            .col-lg-12{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                p{
+                    margin-bottom: 20px;
+                }
+                a{
+                    width: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:280px) {
+    #notfound{
+        .container{
+            .row{
+                .col-lg-12{
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    p{
+                        margin-bottom: 20px;
+                    }
+                    a{
+                        width: 150px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

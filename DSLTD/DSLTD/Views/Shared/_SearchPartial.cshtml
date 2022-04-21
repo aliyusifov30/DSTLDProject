@@ -1,0 +1,125 @@
+﻿
+
+@model SearchViewModel
+
+@if (Model.Categories.Count == 0 && Model.SimpleListProducts.Count == 0)
+{
+    <div class="result-box-title d-flex p-0 h-auto">
+        <div class="row">
+            <p>
+                Sorry, nothing found for "@TempData["Word"]".
+            </p>
+        </div>
+
+    </div>
+}
+else
+{
+<div class="row">
+    <div class="result-box-title d-flex p-0">
+        @if (Model.Categories.Count == 0)
+        {
+            <div class="product-side-main col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="product-side">
+                    <h3 class="gray-bg-title p-0 pt-2 pb-2 ps-2">Product</h3>
+                    <div class="row pb-4">
+                        @foreach (var item in Model.SimpleListProducts)
+                        {
+                            <div class="item col-lg-6 col-md-6 col-sm-12 col-12">
+                                <a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" asp-route-colorId="@item.ProductImages.FirstOrDefault(ps=>ps.ProductId == item.Id).ColorId">
+                                    <div class="image">
+                                        <img src="~/uploads/products/@item.ProductImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <span class="product-name">@item.Name</span>
+                                        <p class="product-brand">DSTLD</p>
+                                        @if (item.Discount >= 1)
+                                        {
+                                            <div class="pe-2 red-text text-line font-12"> $@item.SalePrice.ToString("#.00")</div>
+                                            <div class="text-dark font-12">
+                                                $@((item.SalePrice - (item.SalePrice / 100) * item.Discount).ToString("#.00"))
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="price-black">
+                                                $@item.SalePrice.ToString("#.00")
+                                            </div>
+                                        }
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        <div class="view col-lg-12 col-md-12 col-sm-12 col-12 text-center d-flex justify-content-center align-items-center py-4">
+                            <button type="submit" asp-action="index" asp-controller="search" asp-route-search="" form="search-form">View all @TempData["ProductCount"] products</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="collection-side h-100">
+                    <div class="collection-side-box h-100">
+                        <h3 class="gray-bg-title p-0  pt-2 pb-2 ps-2">Category</h3>
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a asp-action="index" asp-controller="product" asp-route-categoryId="@item.Id" asp-route-title="@item.Name Products">@item.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                    @*<div class="collection-side-box">
+                        <h3 class="gray-bg-title">PAGES</h3>
+                        <ul>
+                            <li><a href="">Privacy</a></li>
+                            <li><a href="">Reset your DSTLD Password</a></li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+            <div class="product-side-main col-lg-8 col-md-8 col-sm-12 col-12">
+                <div class="product-side">
+                    <h3 class="gray-bg-title p-0  pt-2 pb-2 ps-2">Product</h3>
+                    <div class="row pb-4">
+                        @foreach (var item in Model.SimpleListProducts)
+                        {
+                            <div class="item col-lg-6 col-md-6 col-sm-12 col-12">
+                                <a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" asp-route-colorId="@item.ProductImages.FirstOrDefault(ps=>ps.ProductId == item.Id).ColorId">
+                                    <div class="image">
+                                        <img src="~/uploads/products/@item.ProductImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <span class="product-name">@item.Name</span>
+                                        <p class="product-brand">DSTLD</p>
+                                        @if (item.Discount >= 1)
+                                        {
+                                            <div class="pe-2 red-text text-line font-12"> $@item.SalePrice.ToString("#.00")</div>
+                                            <div class="text-dark font-12">
+                                                $@((item.SalePrice - (item.SalePrice / 100) * item.Discount).ToString("#.00"))
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="font-12 text-dark">
+                                                $@item.SalePrice.ToString("#.00")
+                                            </div>
+                                        }
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        <div class="view col-lg-12 col-md-12 col-sm-12 col-12 text-center d-flex justify-content-center align-items-center py-4">
+                            <button type="submit" asp-action="index" asp-controller="search" asp-route-search="" form="search-form">View all @TempData["ProductCount"] products</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+}
+
+

@@ -1,0 +1,51 @@
+#notfound .container .row .col-lg-12 {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#notfound .container .row .col-lg-12 p {
+  margin-bottom: 20px;
+}
+
+#notfound .container .row .col-lg-12 a {
+  width: 250px;
+}
+
+@media only screen and (max-width: 280px) {
+  #notfound .container .row .col-lg-12 {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #notfound .container .row .col-lg-12 p {
+    margin-bottom: 20px;
+  }
+  #notfound .container .row .col-lg-12 a {
+    width: 150px;
+    font-size: 12px;
+  }
+}
+/*# sourceMappingURL=notfound.css.map */

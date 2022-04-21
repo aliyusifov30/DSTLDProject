@@ -1,0 +1,140 @@
+﻿
+
+@model PagenatedList<Order>
+@using DSLTD.Enums; 
+
+@{
+    int count = (Model.PageIndex - 1) * ViewBag.PageSize + 1;
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 d-flex">
+                    <h1 class="align-items-center" style="width:100%;">Orders</h1>
+                    <a asp-action="create" class="align-items-center" style="display: flex; justify-content: flex-end;color:black;">
+                        <i class="bi bi-plus-circle-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form method="get" asp-action="index">
+                        <div class="form-group">
+                            <label>Select</label>
+                            <select class="form-control" name="orderStatus">
+                                <option value="@DSLTD.Enums.OrderStatus.Accepted">Accepted</option>
+                                <option value="@DSLTD.Enums.OrderStatus.Pending">Pending</option>
+                                <option value="@DSLTD.Enums.OrderStatus.Rejected">Rejected</option>
+                                <option value="@DSLTD.Enums.OrderStatus.Canceled">Canceled</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark mb-3">Save</button>
+                        <a asp-action="ExportToExcel" style="color:black;font-size:30px;float:right;">
+                            <i class="bi bi-file-earmark-arrow-down"></i>
+                        </a>
+                    </form> 
+                   
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-striped projects">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">FullName</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">CreatedAt</th>
+                                        <th scope="col">
+                                            Actions :
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Order item in Model)
+                                    {
+                                    <tr>
+                                        <th scope="row" style=" vertical-align: middle;">
+                                            @(count++)
+                                        </th>
+                                        <td>@item.FullName</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.Addresses</td>
+                                        <td>@item.Status</td>
+                                        <td>@item.CreatedAt.ToString("dd:MM:yyyy HH:dd")</td>
+                                        <td>
+                                            <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-outline-dark">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            @*<a asp-action="delete" asp-route-id="@item.Id" class="btn btn-outline-info btn-delete-sweet">
+                                                <i class="bi bi-x-lg text-danger"></i>
+                                            </a>*@
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <nav aria-label="Page navigation example" class="d-flex justify-content-center align-items-center">
+                                <ul class="pagination">
+
+                                    @if (Model.HasPrev)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex - 1)" asp-route-word="@TempData["Word"]" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    }
+                                    @for (int i = 1; i <= Model.TotalPage; i++)
+                                    {
+                                        if (Model.PageIndex - 1 == i)
+                                        {
+                                            <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@i" asp-route-word="@TempData["Word"]">@i</a></li>
+                                        }
+
+                                        if (Model.PageIndex == i)
+                                        {
+                                            <li class="page-item active"><a class="page-link" style=" z-index: 3; color: #fff; background-color: black !important; border-color: black !important;" asp-route-word="@TempData["Word"]" asp-action="index" asp-route-page="@i">@i</a></li>
+                                        }
+                                        if (Model.PageIndex + 1 == i)
+                                        {
+                                            <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@i" asp-route-word="@TempData["Word"]">@i</a></li>
+                                        }
+                                    }
+                                    @if (Model.HasNext)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex + 1)" asp-route-word="@TempData["Word"]" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+}

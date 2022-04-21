@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@model Order
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12" style="padding: 20px; display: flex; justify-content: center; align-items: center;">
+                    <h1>Edit Order</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-gray-dark">
+                                    <h3 class="widget-user-username">@Model.FullName</h3>
+                                </div>
+                                <div class="widget-user-image">
+                                    <img class="img-circle elevation-2" src="~/manage/dist/img/user1-128x128.jpg" alt="User Avatar">
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">Country</h5>
+                                                <span class="description-text">@Model.Country</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">City</h5>
+                                                <span class="description-text">@Model.City</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">Addresses</h5>
+                                                <span class="description-text">@Model.Addresses</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <div class="col-sm-12 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">Order Status</h5>
+                                                <span class="description-text">@Model.Status</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+
+                            <div class="card card-gray-dark collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Product Order Items </h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table table-striped projects">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">No</th>
+                                                        <th scope="col">ProdName</th>
+                                                        <th scope="col">SizeName</th>
+                                                        <th scope="col">SalePrice</th>
+                                                        <th scope="col">Im</th>
+                                                        <th scope="col">CreatedAt</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.OrderItems)
+                                                    {
+                                                        <tr>
+                                                            <th scope="row" style=" vertical-align: middle;">
+                                                                1
+                                                            </th>
+                                                            <td>@item.ProdName</td>
+                                                            <td>@item.SizeName</td>
+                                                            <td>@item.SalePrice</td>
+                                                            <td>
+                                                                <img src="~/uploads/products/@item.Product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" style="width:200px;height:200px;object-fit:cover;" />
+                                                            </td>
+                                                            <td>@item.CreatedAt</td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <form method="post" asp-action="Accepted">
+
+                                        <input type="hidden" asp-for="Status" />
+                                        <input asp-for="Id" type="hidden" />
+                                        <input asp-for="AppUser" type="hidden" />
+                                        <input asp-for="AppUserId" type="hidden" />
+
+                                        @if (!(Model.Status == DSLTD.Enums.OrderStatus.Accepted))
+                                        {
+                                            <button type="submit" class="btn btn-outline-primary my-3">Accepted</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-outline-primary my-3" style="pointer-events: none;">Accepted</button>
+                                        }
+                                    </form>
+                                </div>
+                                <div class="col">
+                                    <form method="post" asp-action="Pending" class="d-flex justify-content-center">
+
+                                        <input type="hidden" asp-for="Status" />
+                                        <input asp-for="Id" type="hidden" />
+                                        <input asp-for="AppUser" type="hidden" />
+                                        <input asp-for="AppUserId" type="hidden" />
+                                        @if (!(Model.Status == DSLTD.Enums.OrderStatus.Pending))
+                                        {
+                                            <button type="submit" class="btn btn-outline-dark my-3">Pending</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-outline-dark my-3" style="pointer-events: none;">Pending</button>
+                                        }
+                                    </form>
+                                </div>
+                                <div class="col">
+                                    <form method="post" asp-action="Canceled" class="d-flex justify-content-end">
+
+                                        <input type="hidden" asp-for="Status" />
+                                        <input asp-for="Id" type="hidden" />
+                                        <input asp-for="AppUser" type="hidden" />
+                                        <input asp-for="AppUserId" type="hidden" />
+
+                                        @if (!(Model.Status == DSLTD.Enums.OrderStatus.Canceled))
+                                        {
+                                            <button type="submit" class="btn btn-outline-warning my-3">Canceled</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-outline-warning my-3" style="pointer-events: none;">Canceled</button>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+
+                            <form method="post" asp-action="Rejected">
+
+                                <input type="hidden" asp-for="Status" />
+                                <input asp-for="Id" type="hidden" />
+                                <input asp-for="AppUser" type="hidden" />
+                                <input asp-for="AppUserId" type="hidden" />
+
+                                <textarea asp-for="RejectText" class="form-control reject-text" id="editor" rows="3"></textarea>
+
+                                @if (!(Model.Status == DSLTD.Enums.OrderStatus.Rejected))
+                                {
+                                    <button type="submit" class="btn btn-outline-danger my-3">Rejected</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-outline-danger my-3" style="pointer-events: none;">Rejected</button>
+                                }
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationPartial")
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+
+    <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
+
+    <script>
+        let rejectText = document.querySelector(".reject-text");
+
+        rejectText.addEventListener("keyup", function () {
+            console.log("asdasd")
+            if (this.val() == null) {
+                console.log("=")
+            } else {
+                console.log("+")
+            }
+        })
+    </script>
+
+
+}
+

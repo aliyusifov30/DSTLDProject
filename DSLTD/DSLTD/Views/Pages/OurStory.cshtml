@@ -1,0 +1,27 @@
+﻿
+
+@model OurStoryViewModel
+
+    <main>
+        <section id="our-story" class="p-0">
+            <div class="container-fuild p-0">
+                <div class="row">
+                    <div class="col-lg-12 p-0">
+                        <a href="">
+                            <div class="image">
+                                <img src="~/uploads/settings/@Model.Image" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="text col-lg-12">
+                        <p>
+                            @Html.Raw(Model.SuperText)
+                        </p>
+                    </div>
+                    <div class="story-box">
+                        @Html.Raw(Model.SubText)
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>

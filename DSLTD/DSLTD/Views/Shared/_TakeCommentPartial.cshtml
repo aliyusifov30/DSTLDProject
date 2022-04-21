@@ -1,0 +1,35 @@
+﻿
+
+@model List<ProductComment>
+
+@foreach (var item in Model)
+{
+    @if (item.Status == true)
+    {
+        <div class="review-item">
+            <div class="review-title col-lg-12">
+                <h3>@item.AppUser.UserName</h3>
+                @if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days > 1)
+                {
+                    <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days) d ago</span>
+                }
+                else
+                {
+                    if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours < 1)
+                    {
+                        <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Minutes) min ago</span>
+                    }
+                    else
+                    {
+                        <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours) hours age</span>
+                    }
+                }
+                <span>@*@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Minutes)*@</span>
+                @*<h3>@item.AppUser.UserName</h3> <span>@(((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days)>1 ? $"{(DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days} d ago" : $"{(DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours}h ago")</span>*@
+            </div>
+            <div class="comment">
+                <p>@item.Text</p>
+            </div>
+        </div>
+    }
+}

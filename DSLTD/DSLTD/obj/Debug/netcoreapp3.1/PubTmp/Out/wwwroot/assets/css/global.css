@@ -1,0 +1,269 @@
+@font-face {
+  font-family: GtNormal;
+  src: url("../../utility/fonts/GT America Regular.ttf");
+}
+
+@font-face {
+  font-family: GtBold;
+  src: url("../../utility/fonts/GT America Bold.ttf");
+}
+
+@font-face {
+  font-family: RecifeRegular;
+  src: url("../../utility/fonts/RecifeDisplay-Regular.woff");
+}
+
+* {
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+}
+
+.container {
+  padding: 0px 20px;
+  margin: 0px !important;
+  max-width: 100%;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  margin: 0px;
+}
+
+input {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none !important;
+}
+
+.card {
+  border-radius: 0px !important;
+  border: none;
+}
+
+body {
+  font-family: GtNormal , sans-serif;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+.col-item {
+  padding: 0px !important;
+}
+
+.accordion .accordion-item {
+  border: 0px !important;
+  border-radius: 0px !important;
+  padding: 10px 0px !important;
+  border-bottom: 1px solid #DDD !important;
+}
+
+.accordion .accordion-item h2 {
+  border-radius: 0px !important;
+}
+
+.accordion .accordion-item h2 button {
+  padding: 8px 0px !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  border-radius: 0px !important;
+  background-color: white;
+  font-size: 12px !important;
+  line-height: 1.8 !important;
+  color: black !important;
+}
+
+.accordion .accordion-item .accordion-collapse .accordion-body {
+  padding: 16px 0px !important;
+  color: black;
+  font-size: 14px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0px;
+}
+
+.btn {
+  border-radius: 0px;
+  border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.btn-sep {
+  background: white;
+  color: black;
+  padding: 16px 0px;
+  letter-spacing: 1.3px;
+}
+
+.detail-size-active {
+  border: 1px solid black !important;
+}
+
+.small-pic-active {
+  border: 1px solid black !important;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: white;
+  width: 100%;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 500;
+  top: 0px;
+  background-color: white;
+}
+
+.buttons-down-position {
+  margin: 0px !important;
+  padding: 10px 0px !important;
+  position: static !important;
+}
+
+.buttons-down-position a {
+  font-size: 10px !important;
+  width: 100% !important;
+  margin: 0px !important;
+  padding: 8px 0px;
+  border: 1px solid black;
+}
+
+.is-visible {
+  display: block !important;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-visibility-visible {
+  visibility: visible !important;
+}
+
+.on-opacity {
+  opacity: 1 !important;
+}
+
+.price {
+  font-size: 13px;
+  color: red;
+}
+
+.discount {
+  padding-left: 13px;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.text-line {
+  text-decoration: line-through !important;
+}
+
+.red-text {
+  color: red !important;
+}
+
+.rotate {
+  -webkit-transform: rotate(180deg) !important;
+          transform: rotate(180deg) !important;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.cancel-line-icon {
+  width: 14px;
+  height: 2px;
+  background: rgba(146, 146, 146, 0.411);
+}
+
+.animate__fadeOutLeft {
+  display: inline-block;
+}
+
+.underline-hover {
+  width: 100%;
+  background-color: black;
+  height: 1px;
+}
+
+.picture-section .background-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.picture-section .background-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.picture-section .container {
+  padding: 0px !important;
+}
+
+.picture-section .container .row {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+}
+
+.picture-section .container .row a {
+  margin: 0px 10px;
+  width: 213px;
+  font-size: 14px;
+  z-index: 100;
+}
+
+.btn-black-white {
+  font-size: 12px;
+  margin: 15px 0px;
+  background-color: black;
+  color: white;
+  width: 400px;
+  position: relative;
+}
+
+.btn-black-white:hover {
+  color: white;
+}
+
+.btn-black-white::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: white;
+  top: 1px;
+  left: 0px;
+}
+
+.btn-black-white::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: white;
+  top: 0px;
+  right: 1px;
+}
+/*# sourceMappingURL=global.css.map */

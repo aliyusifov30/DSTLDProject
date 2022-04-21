@@ -1,0 +1,50 @@
+#orders {
+  padding: 100px 0px;
+}
+
+#empty {
+  height: 100vh;
+}
+
+#empty .container {
+  height: 100%;
+}
+
+#empty .container .row {
+  height: 100%;
+}
+
+#empty .container .row .col-lg-12 {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 786px) {
+  #orders table tr th {
+    font-size: 14px;
+  }
+  #orders table tr td {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  #orders .container {
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #orders .container table {
+    width: 500px;
+  }
+}
+/*# sourceMappingURL=my-orders.css.map */

@@ -1,0 +1,145 @@
+﻿
+@model MemberProfileViewModel   
+
+@{ 
+    int orderCount = 0;
+}
+ <main>
+
+        <section id="MyAccount">
+            <div class="container">
+                <div class="row">
+                    <div class="title col-lg-12">
+                        <a asp-action="Logout" class="log-out">Logout</a>
+                        <h2>My Account</h2>
+                        <p>
+                            Welcome back,
+                            @if (User.Identity.IsAuthenticated)
+                            { 
+                                @User.Identity.Name
+                            }
+                         </p>
+                    </div>
+                </div>
+                <div class="address row">
+                    <div class="col-lg-8 col-md-12 ">
+
+                        @if (Model.Orders.Count == 0 )
+                        {
+                            <div class="my-orders">
+                                <span>My Orders</span>
+                                <p>You haven't placed any orders yet</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>OrderCount</th>
+                                        <th>Code</th>
+                                        <th>CreatedAt</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                            <th>
+                                                Reject Text
+                                            </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in Model.Orders)
+                                    {
+                                        orderCount++;
+                                        <tr data-bs-toggle="collapse" data-bs-target="#demo@(orderCount)" class="accordion-toggle">
+                                            <td>@orderCount</td>
+                                            <td>@(order.OrderCode)</td>
+                                            <td>@order.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                                            <td class="@((order.Status == DSLTD.Enums.OrderStatus.Rejected)?"text-danger":"text-dark")">@(order.Status)</td>
+                                            <td>@order.TotalAmount</td>
+                                            @if (order.RejectText != null) {
+                                                <td>
+                                                    @Html.Raw(order.RejectText)
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <td colspan="12" class="hiddenRow">
+                                                <div class="accordian-body collapse" id="demo@(orderCount)">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr class="info">
+                                                                <th>ProdName</th>
+                                                                <th>ColorName</th>
+                                                                <th>Price</th>
+                                                                <th>Count</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in order.OrderItems)
+                                                            {
+                                                                <tr data-bs-toggle="collapse" class="accordion-toggle" id="demo@(orderCount)" data-bs-target="demo@(orderCount)">
+                                                                    <td style=" vertical-align: middle;"> <a class="text-dark font-12" asp-action="detail" asp-controller="product" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId">@item.Product.Name</a></td>
+                                                                    <td style=" vertical-align: middle;"> <a class="text-dark font-12">@item.ColorName</a></td>
+                                                                    <td style=" vertical-align: middle;" class="text-dark font-12">@item.SalePrice</td>
+                                                                    <td style=" vertical-align: middle;" class="text-dark font-12">@item.Count</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="primary-address">
+                            @if (Model.MainAddress != null)
+                            {
+                                <p class="primary-address-title">Primary Address</p>
+                                <div class="about-box">
+                                    <p class="account-address">
+                                        @Model.MainAddress.Addresses
+                                    </p>
+                                    <p>
+                                        @Model.MainAddress.State
+                                    </p>
+                                    <p>
+                                        @Model.MainAddress.Country
+                                    </p>
+                                    <p>
+                                        @Model.MainAddress.City
+                                    </p>
+                                    <p>
+                                        @Model.MainAddress.ZipCode
+                                    </p>
+                                </div>
+                                <a asp-action="addresses" asp-controller="account" class="btn btn-black-white">EDIT ADDRESS</a>
+                            }
+                            else
+                            {
+
+                                <p class="primary-address-title">Primary Address</p>
+                                <div class="about-box">
+                                    You don't have an address
+                                </div>
+                                <a asp-action="addresses" asp-controller="account" class="btn btn-black-white">CREATE ADDRESS</a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+

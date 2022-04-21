@@ -1,0 +1,61 @@
+
+#our-story{
+    .container-fuild{
+        .row{
+            position: relative;
+            .image{
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .text{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding-top: 60px;
+                h4{
+                    font-size: 20px;
+                    padding: 20px 0px;
+                    text-align: center;
+                    font-family: RecifeRegular;
+                }
+                p{
+                    text-align: center;
+                    padding: 0px 6%;
+                    margin-bottom: 20px !important;
+                }
+            }
+
+            .story-box{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    border:2px solid black;
+                    padding: 26px 39px;
+                }
+                padding-bottom: 60px;
+            }
+            
+        }
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+    
+    #our-story{
+        .container-fuild{
+            .story-box{
+                p{
+                    font-size: 13px !important;
+                    padding: 10px !important;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+}

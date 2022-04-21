@@ -1,0 +1,21 @@
+
+#contact-us{
+    padding: 40px 100px;
+}
+
+
+@media only screen and (max-width:1036px) {
+    
+    #contact-us{
+        padding: 40px 50px;
+    }
+    
+}
+
+@media only screen and (max-width:641px) {
+    
+    #contact-us{
+        padding: 40px 5px;
+    }
+    
+}

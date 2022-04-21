@@ -1,0 +1,55 @@
+
+#orders{
+    padding: 100px 0px;
+}
+
+#empty{
+    height: 100vh;
+    .container{
+        height: 100%;
+        .row{
+            height: 100%;
+            .col-lg-12{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:786px) {
+    
+    #orders{
+        table{
+            tr{
+                th{
+                    font-size: 14px;
+                }
+                td{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:680px) {
+    #orders{
+        .container{
+            overflow: auto;
+        }
+    }
+}
+
+
+@media only screen and (max-width:500px) {
+    #orders{
+        .container{
+            table{
+                width: 500px;
+            }
+        }
+    }
+}

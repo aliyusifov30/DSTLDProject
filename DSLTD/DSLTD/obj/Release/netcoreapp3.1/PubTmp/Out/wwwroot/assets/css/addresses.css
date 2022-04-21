@@ -1,0 +1,272 @@
+#addresses .container {
+  padding: 0px 100px;
+}
+
+#addresses .container .action {
+  margin: 40px 0px;
+}
+
+#addresses .container .action .back-to-account {
+  color: black;
+  font-size: 12px;
+}
+
+#addresses .container .action .back-to-account i {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+#addresses .container .title .btn {
+  padding: 6px 12px;
+  margin: 15px 0px;
+  border-radius: 0px;
+  font-size: 12px;
+}
+
+#addresses .container .title h2 {
+  font-size: 30px;
+  font-family: RecifeRegular;
+}
+
+#addresses .container .title a {
+  font-weight: 700;
+  width: 200px;
+}
+
+#addresses .container .row .address-box {
+  margin: 15px 0px;
+  padding-right: 40px;
+}
+
+#addresses .container .row .address-box .address-title {
+  font-size: 12px;
+  border-bottom: 1px solid black;
+  padding: 10px 0px;
+}
+
+#addresses .container .row .address-box .about-address .address {
+  font-size: 16px;
+  margin: 20px 0px;
+}
+
+#addresses .container .row .address-box .about-address .another {
+  font-size: 14px;
+}
+
+#addresses .container .row .address-box .about-address .buttons {
+  margin: 15px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#addresses .container .row .address-box .about-address .buttons .underline-hover-item {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#addresses .container .row .address-box .about-address .buttons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: black;
+  font-size: 15px;
+}
+
+#addresses .container .row .address-box .about-address .buttons a .underline-hover {
+  background-color: gray;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-header h5, #address-modal .modal .modal-dialog .modal-content .modal-header p {
+  font-family: RecifeRegular;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-header h5 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-header p {
+  font-size: 14px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body {
+  padding: 40px 30px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .items-form .region, #address-modal .modal .modal-dialog .modal-content .modal-body form .items-form .zip-code {
+  padding: 0px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .items-form .region {
+  padding-right: 20px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .form-input {
+  width: 100%;
+  height: 42px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .form-input input, #address-modal .modal .modal-dialog .modal-content .modal-body form .form-input select {
+  padding-top: 0.5em !important;
+  padding-bottom: 0.3571428571em;
+  height: 48px !important;
+  border-radius: 0px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .form-input input:focus, #address-modal .modal .modal-dialog .modal-content .modal-body form .form-input select:focus {
+  border: 1px solid black;
+  -webkit-transform: translate(0px) !important;
+          transform: translate(0px) !important;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .form-input label {
+  width: auto;
+  padding: 0px;
+  -webkit-transform: translate(13px, -41px);
+          transform: translate(13px, -41px);
+  font-size: 12px;
+  background-color: white;
+  opacity: 0;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form .form-check a {
+  margin-left: 0px;
+}
+
+#address-modal .modal .modal-dialog .modal-content .modal-body form button {
+  padding: 5px;
+}
+
+#address-modal form input[type=text], #address-modal form input[type=email], #address-modal form input[type=tel], #address-modal form select {
+  padding-top: 1.5em;
+  padding-bottom: 0.3571428571em;
+  height: 42px;
+  border-radius: 0px;
+}
+
+#address-modal form label {
+  color: gray;
+  font-size: 14px;
+  width: 100%;
+  padding: 9px;
+}
+
+#address-modal form .form-check {
+  padding-top: 14px;
+}
+
+#address-modal form .form-check input {
+  border: 1px solid black;
+  background-color: black;
+}
+
+#address-modal form .form-check label {
+  padding: 0px;
+}
+
+#address-modal form .form-check a {
+  color: black;
+  padding: 0px;
+  margin-left: 14px;
+}
+
+#address-modal form .shipping-address {
+  padding: 20px 0px;
+}
+
+#address-modal form .shipping-address .form-group, #address-modal form .shipping-address .form-floating {
+  margin: 10px 0px;
+}
+
+#address-modal form .shipping-address h3 {
+  padding: 14px 0px;
+  font-size: 16px;
+}
+
+#address-modal form .shipping-address .first, #address-modal form .shipping-address .last {
+  padding: 0px;
+}
+
+#address-modal form .shipping-address .first {
+  padding-right: 10px;
+}
+
+#address-modal form .shipping-address .last {
+  padding-left: 10px;
+}
+
+#address-modal form .shipping-address .last label {
+  margin-left: 10px;
+}
+
+#address-modal form .shipping-address .info {
+  display: none;
+}
+
+#address-modal form .shipping-address .info span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  padding: 0px;
+}
+
+#address-modal form .shipping-address .info span i {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+#address-modal form .shipping-address .form-group .col-lg-4 {
+  padding: 0px;
+}
+
+#address-modal form .shipping-address .form-group .col-lg-4 .select-btn label {
+  font-size: 10px;
+  padding: 0px;
+  padding-left: 12p;
+  padding-left: 12px;
+  padding-top: 4px;
+}
+
+#address-modal form .shipping-address .form-group .col-lg-4 select {
+  font-size: 13px;
+}
+
+#address-modal form .shipping-address .form-group .col-lg-4:nth-child(1) {
+  padding-right: 10px;
+}
+
+#address-modal form .shipping-address .form-group .col-lg-4:nth-child(3) {
+  padding-left: 10px;
+}
+
+#address-modal form .shipping-address .phone input {
+  position: relative;
+}
+
+#address-modal form .shipping-address .phone i {
+  position: absolute;
+  top: 37%;
+  right: 11px;
+  cursor: pointer;
+}
+
+#address-modal form a {
+  padding-left: 20px;
+  color: black;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+  #addresses .container {
+    padding: 0px 50px !important;
+  }
+  .region {
+    padding-right: 0px !important;
+  }
+}
+/*# sourceMappingURL=addresses.css.map */

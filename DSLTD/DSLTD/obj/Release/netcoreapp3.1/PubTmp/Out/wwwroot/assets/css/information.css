@@ -1,0 +1,193 @@
+#information .row {
+  padding: 0px;
+}
+
+#information .contact .contact-box .contact-information {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+#information .contact .contact-box .contact-information h3 {
+  font-size: 16px;
+}
+
+#information .contact .contact-box .contact-information .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#information .contact .contact-box .contact-information .login span {
+  color: gray;
+  font-size: 13px;
+}
+
+#information .contact .contact-box .contact-information .login span a {
+  color: black;
+}
+
+#information .contact .contact-box form input[type=text], #information .contact .contact-box form input[type=email], #information .contact .contact-box form input[type=tel], #information .contact .contact-box form select {
+  padding-top: 1.5em;
+  padding-bottom: 0.3571428571em;
+  height: 42px;
+}
+
+#information .contact .contact-box form label {
+  color: gray;
+  font-size: 14px;
+  width: 100%;
+  padding: 9px;
+}
+
+#information .contact .contact-box form .form-check {
+  padding-top: 14px;
+}
+
+#information .contact .contact-box form .form-check input {
+  border: 1px solid black;
+  background-color: black;
+}
+
+#information .contact .contact-box form .form-check label {
+  padding: 0px;
+  color: black;
+  padding: 0px;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
+#information .contact .contact-box form .shipping-address {
+  padding: 20px 0px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group, #information .contact .contact-box form .shipping-address .form-floating {
+  margin: 10px 0px;
+}
+
+#information .contact .contact-box form .shipping-address h3 {
+  padding: 14px 0px;
+  font-size: 16px;
+}
+
+#information .contact .contact-box form .shipping-address .first, #information .contact .contact-box form .shipping-address .last {
+  padding: 0px;
+}
+
+#information .contact .contact-box form .shipping-address .first {
+  padding-right: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .last {
+  padding-left: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .last label {
+  margin-left: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .info {
+  display: none;
+}
+
+#information .contact .contact-box form .shipping-address .info span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  padding: 0px;
+}
+
+#information .contact .contact-box form .shipping-address .info span i {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group .col-lg-4 {
+  padding: 0px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group .col-lg-4 .select-btn label {
+  font-size: 10px;
+  padding: 0px;
+  padding-left: 12p;
+  padding-left: 12px;
+  padding-top: 4px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group .col-lg-4 select {
+  font-size: 13px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group .col-lg-4:nth-child(1) {
+  padding-right: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .form-group .col-lg-4:nth-child(3) {
+  padding-left: 10px;
+}
+
+#information .contact .contact-box form .shipping-address .phone input {
+  position: relative;
+}
+
+#information .contact .contact-box form .shipping-address .phone i {
+  position: absolute;
+  top: 37%;
+  right: 11px;
+  cursor: pointer;
+}
+
+#information .contact .contact-box form a {
+  padding-left: 20px;
+  color: black;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 1083px) {
+  #information .row .contact .contact-box .contact-information .col-lg-6 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #information .row .contact .contact-box .region {
+    padding-right: 0px !important;
+  }
+  #information .row .contact .contact-box .zip-code {
+    padding-left: 0px !important;
+  }
+  #information .row .contact .contact-box .first, #information .row .contact .contact-box .last {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 745px) {
+  #information .row .contact .contact-box .first, #information .row .contact .contact-box .last {
+    width: 100%;
+  }
+  #information .row .contact .contact-box .first {
+    padding-right: 0px !important;
+  }
+  #information .row .contact .contact-box .last {
+    padding-left: 0px !important;
+  }
+  #information .row form button {
+    width: 100%;
+  }
+  #information .row form .return-cart {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px;
+  }
+  .product-side form button {
+    padding: 0px 5px !important;
+  }
+}
+/*# sourceMappingURL=information.css.map */

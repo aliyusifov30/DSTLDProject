@@ -1,0 +1,163 @@
+#login {
+  padding: 100px 0px;
+}
+
+#login .container .login .row .login-title, #login .container .recover .row .login-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#login .container .login .row .login-title h1, #login .container .recover .row .login-title h1 {
+  font-size: 30px;
+  font-family: RecifeRegular;
+}
+
+#login .container .login .row .login-title p, #login .container .recover .row .login-title p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+#login .container .login .row form, #login .container .recover .row form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#login .container .login .row form .form-input, #login .container .recover .row form .form-input {
+  width: 400px;
+  position: relative;
+}
+
+#login .container .login .row form .form-input input, #login .container .recover .row form .form-input input {
+  padding: 10px;
+  border-radius: 0px;
+}
+
+#login .container .login .row form .form-input input:focus, #login .container .recover .row form .form-input input:focus {
+  border: 1px solid black;
+  -webkit-transform: translate(0px) !important;
+          transform: translate(0px) !important;
+}
+
+#login .container .login .row form .form-input a, #login .container .recover .row form .form-input a {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 12px;
+  color: black;
+}
+
+#login .container .login .row form .form-input .text-danger, #login .container .recover .row form .form-input .text-danger {
+  font-size: 12px;
+  float: left;
+  padding: 4px 0px;
+  width: 100%;
+}
+
+#login .container .login .row form .form-input label, #login .container .recover .row form .form-input label {
+  position: absolute;
+  -webkit-transform: translate(13px, -41px);
+          transform: translate(13px, -41px);
+  font-size: 12px;
+  background-color: white;
+  opacity: 0;
+}
+
+#login .container .login .row form button, #login .container .recover .row form button {
+  font-size: 12px;
+  margin: 15px 0px;
+  background-color: black;
+  color: white;
+  width: 400px;
+  position: relative;
+}
+
+#login .container .login .row form button::after, #login .container .recover .row form button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: white;
+  top: 1px;
+  left: 0px;
+}
+
+#login .container .login .row form button::before, #login .container .recover .row form button::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: white;
+  top: 0px;
+  right: 1px;
+}
+
+#login .container .login .create p, #login .container .recover .create p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+#login .container .login .create p a, #login .container .recover .create p a {
+  color: black;
+  margin-left: 10px;
+}
+
+#login .container .recover {
+  visibility: hidden;
+  display: none;
+}
+
+@media only screen and (max-width: 357px) {
+  #login .container {
+    padding: 0px !important;
+  }
+  #login .container button {
+    padding: 5px 0px !important;
+  }
+}
+
+@media only screen and (max-width: 427px) {
+  #login .container .login-side {
+    width: 100%;
+  }
+  #login .container .form-input, #login .container button {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+  #login .container .form-input a {
+    top: 25px !important;
+  }
+  #login .container p {
+    text-align: center !important;
+  }
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,97 @@
+#MyAccount .container {
+  padding: 0px 100px;
+}
+
+#MyAccount .container .row .title a {
+  font-size: 12px;
+  color: black;
+  margin: 40px 0px;
+  display: block;
+}
+
+#MyAccount .container .row .title h2, #MyAccount .container .row .title p {
+  font-family: RecifeRegular;
+}
+
+#MyAccount .container .row .title h2 {
+  font-size: 30px;
+  margin: 40px 0px;
+}
+
+#MyAccount .container .row .title p {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 60px 0px;
+}
+
+#MyAccount .container .row .my-orders span {
+  font-size: 12px;
+  padding: 10px 0px;
+  display: block;
+  border-bottom: 1px solid gray;
+}
+
+#MyAccount .container .row .my-orders p {
+  margin: 30px 0px;
+  font-size: 14px;
+}
+
+#MyAccount .container .row .primary-address {
+  margin-left: 80px;
+}
+
+#MyAccount .container .row .primary-address .primary-address-title {
+  font-size: 12px;
+  padding: 10px 0px;
+  border-bottom: 1px solid gray;
+}
+
+#MyAccount .container .row .primary-address .about-box {
+  margin: 20px 0px;
+}
+
+#MyAccount .container .row .primary-address .about-box p {
+  font-size: 16px;
+}
+
+#MyAccount .container .row .primary-address .about-box .account-address {
+  margin: 10px 0px;
+}
+
+#MyAccount .container .row .primary-address .btn {
+  width: 200px;
+}
+
+#MyAccount .container .address {
+  margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 992px) {
+  #MyAccount .container {
+    padding: 0px 20px;
+  }
+  #MyAccount .container h2 {
+    font-size: 20px !important;
+  }
+  #MyAccount .container .primary-address {
+    margin-left: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #MyAccount .container {
+    padding: 0px 20px;
+  }
+  #MyAccount .container h2 {
+    font-size: 20px !important;
+  }
+}
+/*# sourceMappingURL=account.css.map */

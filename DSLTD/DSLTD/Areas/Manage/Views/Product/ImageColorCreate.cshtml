@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@model Product
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12" style="padding: 20px; display: flex; justify-content: center; align-items: center;">
+                    <h1>Create ImageColor</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form method="post" enctype="multipart/form-data" asp-action="imagecolorcreate">
+
+                                @foreach (ProductColor item in ViewBag.ProductColors)
+                                {
+                                    <div class="card card-dark">
+                                        <div class="card-header">
+                                            <h3 class="card-title">@item.Color.Name</h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.card-tools -->
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body" style="display: block;">
+                                            <div class="card-body" style="display: block;">
+                                                <div class="mb-3 custom-file">
+                                                    <input asp-for="PosterImagesFile" class="custom-file-input" id="customFile">
+                                                    <label asp-for="PosterImagesFile" class="custom-file-label">
+                                                        <i class="bi bi-file-image"></i>
+                                                    </label>
+                                                    <span class="text-danger" asp-validation-for="PosterImagesFile"></span>
+                                                </div>
+
+                                                <div class="mb-3 custom-file">
+                                                    <input asp-for="HoverImagesFile" class="custom-file-input">
+                                                    <label asp-for="HoverImagesFile" class="custom-file-label">
+                                                        <i class="bi bi-file-image-fill"></i>
+                                                    </label>
+                                                    <span class="text-danger" asp-validation-for="HoverImagesFile"></span>
+                                                </div>
+                                                <div class="mb-3 custom-file">
+                                                    <input asp-for="ProductImagesFile" class="custom-file-input" multiple>
+                                                    <label asp-for="ProductImagesFile" class="custom-file-label">
+                                                        <i class="bi bi-images"></i>
+                                                    </label>
+                                                    <span class="text-danger" asp-validation-for="ProductImagesFile"></span>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <input type="hidden" asp-for="ProductColorsIds" value="@item.ColorId" />
+                                        </div>
+                                    </div>
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                }
+
+                                <button type="submit" class="btn btn-outline-dark my-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationPartial")
+}

@@ -1,0 +1,385 @@
+﻿@model ProducDetailViewModel
+
+@{
+    bool check = false;
+}
+
+<main>
+    <section id="detail">
+        <div class="container">
+            <div class="row">
+                <div class="pictures d-flex">
+                    <div class="small-pic col-lg-2">
+                        <div class="images">
+                            <div class="row">
+                                <div class="small-pic-item col-lg-12">
+                                    <div class="owl-carousel owl-theme">
+                                        <div class="item">
+                                            @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == null))
+                                            {
+                                                <a href="#pic-@item.Id">
+                                                    <div class="image @(check==false?"small-pic-active":"")">
+                                                        <img src="~/uploads/products/@item.Image" alt="">
+                                                    </div>
+                                                </a>
+                                                check = true;
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="manual-dots col-lg-12">
+                                    <div class="dots" @(check = false)>
+                                        @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == null))
+                                        {
+                                            <a href="#pic-@item.Id" class="button @(check==false?"active":"")">
+
+                                            </a>
+                                            check = true;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="big-images col-lg-10">
+                        <div class="row">
+                            <div class="owl-carousel-big-image owl-theme-big-image">
+                                @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == null))
+                                {
+                                    <div class="item">
+                                        <div class="image" id="pic-@item.Id">
+                                            <img src="~/uploads/products/@item.Image" alt="">
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="details col-lg-4">
+                    <div class="content">
+                        <div class="title">
+                            <div class="row">
+                                <div class="sec-item col-lg-12">
+                                    <h2>@Model.Product.Name in @Model.Product.ProductColors.FirstOrDefault(x => x.ColorId == ViewBag.ColorId).Color.Name.ToString()</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-and-text">
+                            <div class="row">
+                                <div class="sec-item col-lg-12">
+
+                                    @if (Model.Product.Discount > 0)
+                                    {
+                                        <span class="red-text text-line font-12">
+                                            @Model.Product.SalePrice
+                                        </span>
+
+                                        <span class="font-12 px-1" style="font-size:15px;">
+                                            @((Model.Product.SalePrice - (Model.Product.SalePrice / 100) * Model.Product.Discount).ToString("#.00"))
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="font-12 px-1">
+                                            @Model.Product.SalePrice
+                                        </span>
+                                    }
+                                    <!-- <span class="discount">$548</span> -->
+                                    <span class="text">or 4 installments of $@(((Model.Product.SalePrice - (Model.Product.SalePrice / 100) * Model.Product.Discount) / 4).ToString("#.00")) with <img src="~/assets/img/ShopPay-Black.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc-acc">
+                            <div class="row">
+                                <div class="sec-item col-lg-12">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    Description
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p>@Model.Product.Desc</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-acc">
+                            <div class="row">
+                                <div class="sec-item col-lg-12">
+                                    <div class="accordion" id="accordionDetail">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetail" aria-expanded="false" aria-controls="collapseDetail">
+                                                    Details
+                                                </button>
+                                            </h2>
+                                            <div id="collapseDetail" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionDetail">
+                                                <div class="accordion-body" style="list-style:disc !important;">
+                                                    @Html.Raw(Model.Product.Detail)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-fit-guide">
+                            <div class="row">
+                                <div class="sec-item col-lg-12">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Fit Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.Product.ProductColors.Count == 1)
+                        {
+                            <div class="colors d-none" data-colorId="@TempData["ProductColorId"]"></div>
+                        }
+                        else
+                        {
+                            <div class="colors" data-colorId="@TempData["ProductColorId"]">
+                                <div class="row">
+                                    <div class="sec-item col-lg-12">
+                                        <h4>More Colors:</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="sec-item col-lg-12">
+                                        <ul class="d-flex">
+                                            @foreach (var item in Model.Product.ProductColors)
+                                            {
+                                                <li>
+                                                    <a asp-action="detail" asp-controller="product" asp-route-colorId="@item.ColorId">
+                                                        <!-- <div class="image"> -->
+                                                        <img src="~/uploads/colors/@item.Color.Image" alt="">
+                                                        <!-- </div> -->
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                        <form action="">
+                            <div class="size">
+                                <div class="row">
+                                    <div class="sec-item col-lg-12">
+                                        <h4>Size:</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="sec-item col-lg-12">
+                                        <ul class="d-flex size-list">
+                                            @foreach (ProductSize item in Model.Product.ProductSizes)
+                                            {
+                                                @if (item.SizeCount > 0)
+                                                {
+                                                    <li class="size-item">
+                                                        <div class="detail-size-button">
+                                                            <input type="radio" id="size" name="size" value="XS" data-sizeId="@item.SizeId">
+                                                            <label for="size">
+                                                                @item.Size.Name
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                }
+                                                check = false;
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <div class="row">
+                                    <div class="sec-item col-lg-12">
+                                        <div class="btn-add">
+                                            <button type="button" class="add-basket" data-id="@Model.Product.Id"> ADD TO CARD</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="review">
+        <div class="container-fuild">
+            <div class="row">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Reviews
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="container">
+                                    <div class="row">
+
+                                        @if (Model.ProductComments.Count != 0)
+                                        {
+                                            <div class="review-items">
+
+                                                @foreach (var item in Model.ProductComments)
+                                                {
+                                                    @if (item.Status == true)
+                                                    {
+                                                        <div class="review-item">
+                                                            <div class="review-title col-lg-12">
+                                                                <h3>@item.AppUser.UserName</h3>
+                                                                @if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days > 1)
+                                                                {
+                                                                    <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days) d ago</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours < 1)
+                                                                    {
+                                                                        <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Minutes) min ago</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span>@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours) hours ago</span>
+                                                                    }
+                                                                }
+                                                                <span>@*@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Minutes)*@</span>
+                                                                @*<h3>@item.AppUser.UserName</h3> <span>@(((DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days)>1 ? $"{(DateTime.UtcNow.AddHours(4) - item.CreatedAt).Days} d ago" : $"{(DateTime.UtcNow.AddHours(4) - item.CreatedAt).Hours}h ago")</span>*@
+                                                            </div>
+                                                            <div class="comment">
+                                                                <p>@item.Text</p>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+
+                                            </div>
+                                        }
+                                        <input type="hidden" data-id="@Model.Product.Id" />
+                                        <input type="hidden" name="productId" value="@Model.Product.Id" form="add-comment" />
+                                        @await Html.PartialAsync("_ProductCommentPartial", Model.ProductComment)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="may-also-like">
+        <div class="container">
+            <div class="row">
+                <h3 class="title">You may also like</h3>
+            </div>
+            <div class="owl-carousel-also-like owl-theme-also-like">
+                @foreach (var ratingProd in Model.BestRatingProduct)
+                {
+                    <a asp-action="detail" asp-controller="product" asp-route-id="@ratingProd.Id" asp-route-colorId="@ratingProd.ProductColors.FirstOrDefault(x=>x.ProductId==ratingProd.Id).Color.Id">
+                        <div class="item">
+                            <div class="card my-2 mx-1">
+                                <div class="image">
+                                    <img src="~/uploads/products/@ratingProd.ProductImages.FirstOrDefault(x=>x.PosterStatus == true)?.Image" class="card-img-top" alt="...">
+                                    <div class="hover-image">
+                                        <img src="~/uploads/products/@ratingProd.ProductImages.FirstOrDefault(x=>x.PosterStatus == false)?.Image" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="texts col-lg-8 col-md-8 col-sm-8 col-8">
+                                            <p>@ratingProd.Name</p>
+                                        </div>
+                                        <div class="prices col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-end">
+
+                                            @if (ratingProd.Discount > 0)
+                                            {
+                                                <span class="red-text text-line font-12">
+                                                    @ratingProd.SalePrice
+                                                </span>
+
+                                                <span class="font-12 text-dark px-1">
+                                                    @((ratingProd.SalePrice - (ratingProd.SalePrice / 100) * ratingProd.Discount).ToString("#.00"))
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="font-12 text-dark px-1">
+                                                    @ratingProd.SalePrice
+                                                </span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                                <div class="title">
+                                    <h3>@Model.Product.Gender.Name's Size Chart</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                                <div class="image">
+                                    <img src="~/uploads/settings/@Model.Setting.FirstOrDefault(x=>x.Key == Model.Product.Gender.Name.ToLower().ToString()+"-size-chart-image")?.Value" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+@section Scripts{
+
+    <!-- Detail Owl Caoursel -->
+    <script src="~/assets/js/detail/detail-owlcarousel.js"></script>
+    <!-- Detail Js -->
+    <script src="~/assets/js/detail/detail.js"></script>
+    
+    <script>
+
+        let changeImg = window.innerWidth;
+
+        window.onresize = function () {
+            changeImg = window.innerWidth;
+            if (changeImg > 992) {
+                console.log(changeImg)
+                $("#detail .big-images .owl-stage").css("transform", "translate3d(0px,0px,0px)")
+            }
+        }
+    </script>
+
+}

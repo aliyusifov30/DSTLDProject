@@ -1,0 +1,60 @@
+#shipping{
+    
+    .contact{
+        .contact-ship{
+            margin: 0px;
+        }
+        .contact-box{
+            .shipping-method-title{
+                h3{
+                    font-size: 20px;
+                }
+            }
+            .shipping-method{
+                margin: 10px 0px;
+                .contact-about,.item{
+                    .box-title{
+                        input{
+                            cursor: pointer;
+                            &:focus{
+                                border:none;
+                                background-color: black;
+                            }
+                            &:active{
+                                border:none;
+                                background-color: black;
+                            }
+                        }
+                        label{
+                            cursor: pointer;
+                            color:black;
+                            font-size:15px;
+                            outline: none;
+                            box-shadow: none;
+                            &:focus{
+                                border:none;
+                                background-color: black;
+                            }
+                        }
+                    }
+                    .action{
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            .button-side{
+                margin: 20px 0px;
+                display: flex;
+                align-items: center;
+                a{
+                    padding: 0px 15px;
+                    color:black;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,42 @@
+@media only screen and (max-width: 1083px) {
+  #information .row .contact .contact-box .contact-information .col-lg-6 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #information .row .contact .contact-box .region {
+    padding-right: 0px !important;
+  }
+  #information .row .contact .contact-box .zip-code {
+    padding-left: 0px !important;
+  }
+  #information .row .contact .contact-box .first, #information .row .contact .contact-box .last {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 745px) {
+  #information .row .contact .contact-box .first, #information .row .contact .contact-box .last {
+    width: 100%;
+  }
+  #information .row .contact .contact-box .first {
+    padding-right: 0px !important;
+  }
+  #information .row .contact .contact-box .last {
+    padding-left: 0px !important;
+  }
+  #information .row form button {
+    width: 100%;
+  }
+  #information .row form .return-cart {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px;
+  }
+  .product-side form button {
+    padding: 0px 5px !important;
+  }
+}
+/*# sourceMappingURL=information-responsive.css.map */

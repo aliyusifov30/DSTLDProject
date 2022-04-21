@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+@model Product
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12" style="padding: 20px; display: flex; justify-content: center; align-items: center;">
+                    <h1>Edit Product</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form method="post" enctype="multipart/form-data">
+
+                                <div class="card card-dark collapsed-card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Image Bar</h3>
+
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <!-- /.card-tools -->
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body" style="display: none;">
+
+                                        <div class="row">
+                                            @foreach (ProductColor item in ViewBag.ProductColors)
+                                            {
+                                                <input type="hidden" asp-for="ProductColorsIds" value="@item.ColorId" />
+                                                <div class="col-lg-12 pb-3">
+                                                    @item.Color.Name
+                                                </div>
+                                            }
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="mb-3 custom-file" style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                                <input asp-for="PosterImageFile" class="custom-file-input poster-image-input">
+                                                <label asp-for="PosterImageFile" class="custom-file-label">
+                                                    <i class="bi bi-file-image"></i>
+                                                </label>
+                                                <span class="text-danger" asp-validation-for="PosterImageFile"></span>
+                                                @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == true))
+                                                {
+                                                    <div class="poster-image-change" style=" margin: 10px; display: flex; justify-content: center; align-items: center;flex-direction:column;">
+                                                        <img src="~/uploads/products/@item.Image" style="width:200px;height:200px;object-fit:cover;" />
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="mb-3 custom-file" style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                                <input asp-for="HoverImageFile" class="custom-file-input hover-image-input">
+                                                <label asp-for="HoverImageFile" class="custom-file-label">
+                                                    <i class="bi bi-file-image-fill"></i>
+                                                </label>
+                                                <span class="text-danger" asp-validation-for="HoverImageFile"></span>
+                                                @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == false))
+                                                {
+                                                    <div class="hover-image-change" style=" margin: 10px; display: flex; justify-content: center; align-items: center; flex-direction:column">
+                                                        <img src="~/uploads/products/@item.Image" style="width:200px;height:200px;object-fit:cover;" />
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="mb-3 col-xl-12 custom-file" style="height: 100%;">
+                                                <input id="product-input" asp-for="ProductImagesFile" class="custom-file-input">
+                                                <label asp-for="ProductImagesFile" class="custom-file-label">
+                                                    <i class="bi bi-images"></i>
+                                                </label>
+                                                <span class="text-danger" asp-validation-for="ProductImagesFile"></span>
+                                                <div id="product-div" class="row my-3" style="width:100%; display: flex; justify-content: center; align-items: center;">
+                                                    @foreach (var item in Model.ProductImages.Where(x => x.PosterStatus == null))
+                                                    {
+                                                        <div class="img-box col-lg-2" style="display: flex; flex-direction: column; width: 230px;margin:10px 0px;">
+                                                            <input type="hidden" name="ProductImageIds[]" value="@item.Id" />
+                                                            <img style=" width: 100%; height: 200px; object-fit: cover;" src="~/uploads/products/@item.Image" />
+                                                            <button type="button" class="btn btn-block btn-danger btn-xs remove-img-box" style="margin:3px 0px;">Danger</button>
+                                                        </div>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+
+                                <button type="submit" class="btn btn-outline-dark my-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>

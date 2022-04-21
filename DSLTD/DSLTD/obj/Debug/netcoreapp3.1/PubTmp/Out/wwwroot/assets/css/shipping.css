@@ -1,0 +1,65 @@
+#shipping .contact .contact-ship {
+  margin: 0px;
+}
+
+#shipping .contact .contact-box .shipping-method-title h3 {
+  font-size: 20px;
+}
+
+#shipping .contact .contact-box .shipping-method {
+  margin: 10px 0px;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .box-title input, #shipping .contact .contact-box .shipping-method .item .box-title input {
+  cursor: pointer;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .box-title input:focus, #shipping .contact .contact-box .shipping-method .item .box-title input:focus {
+  border: none;
+  background-color: black;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .box-title input:active, #shipping .contact .contact-box .shipping-method .item .box-title input:active {
+  border: none;
+  background-color: black;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .box-title label, #shipping .contact .contact-box .shipping-method .item .box-title label {
+  cursor: pointer;
+  color: black;
+  font-size: 15px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .box-title label:focus, #shipping .contact .contact-box .shipping-method .item .box-title label:focus {
+  border: none;
+  background-color: black;
+}
+
+#shipping .contact .contact-box .shipping-method .contact-about .action, #shipping .contact .contact-box .shipping-method .item .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#shipping .contact .contact-box .button-side {
+  margin: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#shipping .contact .contact-box .button-side a {
+  padding: 0px 15px;
+  color: black;
+  font-size: 14px;
+}
+/*# sourceMappingURL=shipping.css.map */

@@ -1,0 +1,243 @@
+@media only screen and (max-width: 1139px) {
+  #newsletter .container .row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #newsletter .container .row h3 {
+    font-size: 40px;
+  }
+  #newsletter .container .row .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100% !important;
+  }
+  #newsletter .container .row .input-side {
+    width: 524px;
+  }
+  #newsletter .container .row .input-side form {
+    width: 100%;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+}
+
+@media only screen and (max-width: 1123px) {
+  #shop-on-instagram .container .title h3 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1076px) {
+  #shop-on-instagram .container {
+    padding: 0px 115px !important;
+  }
+  #shop-on-instagram .container .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #shop-on-instagram .container .row .title {
+    padding: 5px 0px;
+  }
+  #shop-on-instagram .container .row .item {
+    width: 33.333%;
+  }
+  #shop-on-instagram .container .row .item .image img {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media only screen and (max-width: 1004px) {
+  #shop-the-edit .container {
+    padding: 0px 12px !important;
+  }
+  #shop-on-instagram .container {
+    padding: 20px !important;
+  }
+  #shop-on-instagram .container .row .item {
+    width: 25%;
+  }
+  #shop-on-instagram .container .row .item .image img {
+    width: 227px !important;
+    height: 167px !important;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .modal .modal-dialog {
+    max-width: 760px;
+  }
+  .modal .modal-dialog .modal-content .modal-body .image img {
+    height: 370px !important;
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #fresh-start .container .row h1 {
+    font-size: 35px;
+    color: black;
+  }
+  .modal .modal-dialog {
+    max-height: 1000px !important;
+    margin: 0px;
+    border: 6px solid black;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  #shop-on-instagram .container .row .card {
+    margin: 5px 0px;
+  }
+  #shop-on-instagram .container .row .item {
+    width: 33.333%;
+  }
+  #shop-on-instagram .container .row .item .image {
+    height: 167px !important;
+    width: 167px !important;
+  }
+}
+
+@media only screen and (max-width: 669px) {
+  #newsletter .container {
+    padding: 0px 20px !important;
+  }
+  #newsletter .container .row h3 {
+    font-size: 30px;
+  }
+  #newsletter .container .row .input-side {
+    width: 400px;
+  }
+  .search-side {
+    padding: 0px;
+  }
+  .search-side .container {
+    padding: 0px;
+  }
+  .search-side .container i {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 641px) {
+  #denim-delivery .container .row p, #denim-delivery .container .row h1 {
+    text-align: center;
+    color: black !important;
+  }
+  #denim-delivery .container .row p {
+    margin: 0px;
+  }
+  #denim-delivery .container .row h1 {
+    font-size: 40px;
+    line-height: 50px;
+    padding-bottom: 23px;
+    margin: 0px;
+  }
+  #denim-delivery .container .row a {
+    margin: 0px 12px !important;
+    color: black;
+    border: 1px solid black;
+  }
+  #gender-type-arrival .container .row .item {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  #fresh-start h1 {
+    font-size: 30px !important;
+  }
+  #denim-delivery .container h1 {
+    font-size: 30px !important;
+  }
+  #newsletter .container .row h3 {
+    font-size: 25px;
+  }
+  #newsletter .container .row .input-side {
+    width: 340px;
+  }
+  #shop-on-instagram .container .row .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #shop-on-instagram .container .row .item {
+    width: 50%;
+  }
+  #shop-on-instagram .container .row .item .image img {
+    height: 167px !important;
+    width: 167px !important;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  #fresh-start h1 {
+    font-size: 25px !important;
+  }
+  #denim-delivery .container h1 {
+    font-size: 25px !important;
+  }
+  #shop-on-instagram .container {
+    padding: 0px;
+  }
+  #shop-on-instagram .container .row .card {
+    padding: 5px 0px;
+  }
+  #shop-on-instagram .container .row .card .image {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  #shop-on-instagram .container .row .card .image img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  #newsletter .container .row {
+    text-align: center;
+  }
+  #newsletter .container .row h3 {
+    font-size: 20px;
+  }
+  #newsletter .container .row .input-side {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 322px) {
+  #newsletter .container .row h3 {
+    font-size: 15px;
+  }
+  #newsletter .container .row .input-side {
+    width: 240px;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

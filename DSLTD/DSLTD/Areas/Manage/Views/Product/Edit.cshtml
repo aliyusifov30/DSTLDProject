@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+@model Product
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12" style="padding: 20px; display: flex; justify-content: center; align-items: center;">
+                    <h1>Create Product</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form method="post" asp-action="edit" enctype="multipart/form-data">
+
+                                <div class="mb-3">
+                                    <label asp-for="Name" class="form-label">Name</label>
+                                    <input asp-for="Name" class="form-control">
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <div class="mb-3">
+                                            <label asp-for="SalePrice" class="form-label">SalePrice</label>
+                                            <input asp-for="SalePrice" class="form-control">
+                                            <span class="text-danger" asp-validation-for="SalePrice"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <div class="mb-3">
+                                            <label asp-for="CostPrice" class="form-label">CostPrice</label>
+                                            <input asp-for="CostPrice" class="form-control">
+                                            <span class="text-danger" asp-validation-for="CostPrice"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <div class="mb-3">
+                                            <label asp-for="Discount" class="form-label">Discount</label>
+                                            <input asp-for="Discount" class="form-control">
+                                            <span class="text-danger" asp-validation-for="Discount"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Desc" class="form-label">Desc</label>
+                                    <textarea class="form-control" asp-for="Desc" rows="6"></textarea>
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-lg-6">
+                                        <div class="mb-3">
+                                            <label asp-for="IsNew" class="form-label">IsNew</label>
+                                            <input asp-for="IsNew" class="form-control">
+                                            <span class="text-danger" asp-validation-for="IsNew"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="GenderId">Gender</label>
+                                        <select class="form-control" asp-for="GenderId" asp-items="@new SelectList((List<Gender>)ViewBag.Gender,nameof(Gender.Id),nameof(Gender.Name))"></select>
+                                        <span asp-validation-for="GenderId" class="text-danger"></span>
+                                    </div>
+
+                                    @*<div class="form-group col-lg-6">
+                                            <div class="mb-3">
+                                                <label asp-for="InStock" class="form-label">InStock</label>
+                                                <input asp-for="InStock" class="form-control">
+                                                <span class="text-danger" asp-validation-for="InStock"></span>
+                                            </div>
+                                        </div>*@
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="ProductSizesIds">Product Size</label>
+                                        <select class="form-control" asp-for="ProductSizesIds" asp-items="@new SelectList((List<Size>)ViewBag.Size,nameof(Size.Id),nameof(Size.Name))">
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="ProductSizesIds"></span>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="CategoryId">Category</label>
+                                        <select class="form-control" asp-for="CategoryId" asp-items="@new SelectList((List<Category>)ViewBag.Category,nameof(Category.Id),nameof(Category.Name))"></select>
+                                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="ProductColorsIds">Product Color</label>
+                                        <select class="form-control" asp-for="ProductColorsIds" asp-items="@new SelectList((List<Color>)ViewBag.Color,nameof(Color.Id),nameof(Color.Name))">
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="ProductColorsIds"></span>
+                                    </div>
+
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="GiftId">Gift</label>
+                                        <select class="form-control" asp-for="GiftId" asp-items="@new SelectList((List<Gift>)ViewBag.Gift,nameof(Gift.Id),nameof(Gift.Code))"></select>
+                                        <span asp-validation-for="GiftId" class="text-danger"></span>
+                                    </div>
+
+                                    @*<div class="form-group col-lg-6">
+                                            <label asp-for="ProductDetailsIds">ProductDetailsIds</label>
+                                            <select class="form-control" asp-for="ProductDetailsIds" asp-items="@new SelectList((List<Detail>)ViewBag.Detail,nameof(Detail.Id),nameof(Detail.Name))"></select>
+                                            <span asp-validation-for="ProductDetailsIds" class="text-danger"></span>
+                                        </div>*@
+
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label asp-for="Detail">Detail</label>
+                                    <textarea class="form-control" id="editor" asp-for="Detail" rows="3"></textarea>
+                                </div>
+
+
+                                <div class="form-row">
+                                    @foreach (var item in Model.ProductSizes)
+                                    {
+                                        <div class="form-group col-lg-4">
+                                            @*<label asp-for="@item.Size.Name">Name</label>*@
+                                            <span>@item.Size.Name</span>
+                                            <input type="text" class="form-control rounded-0" asp-for="@item.SizeCount" name="SizeCountValues[]" value="@item.SizeCount" placeholder="@item.SizeCount" style="background: transparent">
+                                            @*<input asp-for="@item.SizeCount" name="SizeCountValues[]" value="@item.SizeCount" />*@
+                                        </div>
+                                    }
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                </div>
+
+                                <button type="submit" class="btn btn-outline-dark my-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationPartial")
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

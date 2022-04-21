@@ -1,0 +1,17 @@
+﻿
+
+@model ProductComment
+
+<div class="add-review mt-3">
+
+    <div class="add-review-title">
+        <h2>Add a review</h2>
+
+        <form asp-action="comment" method="post" id="add-comment">
+            <div class="mb-3">
+                <textarea asp-for="@Model.Text" class="form-control" rows="3"></textarea>
+                <button type="submit" class="btn btn-black-white">submit</button>
+            </div>
+        </form>
+    </div>
+</div>

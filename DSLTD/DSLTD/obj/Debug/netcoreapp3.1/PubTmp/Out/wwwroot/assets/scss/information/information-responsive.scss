@@ -1,0 +1,130 @@
+
+
+@media only screen and (max-width:1083px) {
+    
+    #information{
+        .row{
+            .contact{
+                .contact-box{
+                    .contact-information{
+                        .col-lg-6{
+                            width: 50%;
+                        }
+                    }
+                    // .first{
+                    //     padding-right: 0px !important;
+                    // }
+                    // .last{
+                    //     padding-left: 0px !important;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:992px) {
+    
+    #information{
+        .row{
+            .contact{
+                .contact-box{
+                    .region{
+                        padding-right: 0px !important;
+                    }
+                    .zip-code{
+                        padding-left: 0px !important;
+                    }
+                    .first,.last{
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width:745px) {
+    
+    #information{
+        .row{
+            .contact{
+                .contact-box{
+                    .first,.last{
+                        width: 100%;
+                    }
+                    .first{
+                        padding-right: 0px !important;
+                    }
+                    .last{
+                        padding-left: 0px !important;
+                    }
+                }
+            }
+            form{
+                button{
+                    width: 100%;
+                }
+                .return-cart{
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin: 10px 0px;
+                }
+            }
+        }
+    }
+
+    .product-side{
+        form{
+            button{
+                padding: 0px 5px !important;
+            }
+        }
+    }
+}
+
+// @media only screen and (max-width:493px) {
+    
+//     #information{
+//         .row{
+//             width: 100%;
+//             .contact-title{
+//                 ul{
+//                     flex-wrap: wrap;
+//                 }
+//             }
+//             .contact-title{
+//                 width: 100%;
+//             }
+//             .contact-side{
+//                 padding: 0px;
+//             }
+//             .contact{
+//                 .contact-box{
+//                     .contact-information{
+//                         .col-lg-6{
+//                             width: 100%;
+//                         }
+//                         .login{
+//                             justify-content: flex-start;
+//                         }
+//                     }
+//                 }
+//                 .contact-box{
+//                     // .first,.last{
+//                     //     width: 100%;
+//                     // }
+//                     // .first{
+//                     //     padding-right: 0px !important;
+//                     // }
+//                     // .last{
+//                     //     padding-left: 0px !important;
+//                     // }
+//                 }
+//             }
+//         }
+//     }
+
+// }

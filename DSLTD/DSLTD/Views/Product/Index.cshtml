@@ -1,0 +1,532 @@
+﻿
+@model ProductViewModel
+
+<main>
+    <section id="collection-title-section">
+        <div class="container">
+            @if (ViewBag.Title != null)
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="collection-title">
+                            <h2>
+                                @(ViewBag.Title)
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <div class="collection-filter-sort row">
+                <div class="collection-filter col-lg-12 col-md-12">
+                    <h1 class="collection-responsive-title">FILTER</h1>
+                    @*<form>*@
+                    <ul>
+                        <!--<li>
+                <a href="" class="collection-type-name">
+                    Type
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+                <div class="collection-dropdown drop-menu">
+                    <div class="small-drop drop">
+                        <div class="collection-list">
+                            <div class="man-list-item">
+                                <input type="radio" id="Pants" name="type" value="Pants"
+                                       checked>
+                                <label for="Pants">Pants</label>
+                            </div>
+                            <div class="man-list-item">
+                                <input type="radio" id="Shirts" name="type" value="Shirts">
+                                <label for="Shirts">Shirts</label>
+                            </div>
+                            <button type="submit" class="collection-apply-btn">Submit</button>
+                        </div>
+                    </div>-->
+                        <!-- <div class="collection-apply-btn">
+                    <a href="">Apply</a>
+                </div> -->
+                        <!--</div>
+                </li>-->
+                        <li>
+                            <a href="" class="collection-type-name">
+                                Size
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <div class="collection-dropdown drop-menu">
+                                <div class="big-drop drop">
+                                    <div class="collection-list">
+                                        @foreach (var item in Model.Sizes)
+                                        {
+                                            @*<div class="man-list-item">
+                                            <input type="radio" id="@item.Size.Name" name="size" value="@item.Size.Name"
+                                                   checked>
+                                            <label for="@item.Size.Name" class="@(ViewBag.SizeActive==item.Size.Name?"label-active":"")">@item.Size.Name</label>
+                                        </div>*@
+                                            <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@item.Name" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="select-item">
+                                                <div class="select-item-button d-flex justify-content-center align-items-center @(ViewBag.SizeActive==item.Name?"label-active":"")">
+                                                    @item.Name
+                                                </div>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="" class="collection-type-name">
+                                Colors
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <div class="collection-dropdown drop-menu">
+                                <div class="small-drop drop">
+                                    <div class="collection-list image-drop">
+                                        <div class="image-btn">
+                                            <div class="image-btns">
+                                                @foreach (var item in Model.Colors)
+                                                {
+                                                    @*<div class="image-btn-item">
+                                                    <input type="radio" id="@item.Color.Name" name="color" value="@item.Color.Name">
+                                                    <label for="@item.Color.Name" class="@(ViewBag.ColorActive==item.Color.Name?"label-active image-label-active":"")">
+                                                        <div class="image">
+                                                            <img src="~/uploads/colors/@item.Color.Image" alt="">
+                                                        </div>
+                                                    </label>
+                                                </div>*@
+                                                    <a class="@(ViewBag.ColorActive==item.Name?"label-active image-label-active":"")" asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@ViewBag.SizeName" asp-route-color="@item.Name" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                                        <div class="image">
+                                                            <img src="~/uploads/colors/@item.Image" alt="">
+                                                        </div>
+                                                    </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    @*</form>*@
+                </div>
+                <div class="collection-sort col-lg-1 col-md-2">
+                    <h1 class="collection-responsive-title">
+                        SORT
+                        <i class="fa-solid fa-angle-down"></i>
+                    </h1>
+                    <div class="items">
+                        <div class="collection-sort-title">
+                            <a href="">
+                                Sort
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div class="collection-sort-list">
+                            <div class="collection-dropdown dropdown">
+                                <div class="drop">
+                                    <div class="collection-list">
+                                        <div class="collection-list-item">
+                                            <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="isNew" asp-route-title="@ViewBag.Title">Newest</a>
+                                        </div>
+                                        <div class="collection-list-item">
+                                            <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="best-selling" asp-route-title="@ViewBag.Title">Best Selling</a>
+                                        </div>
+                                        <div class="collection-list-item">
+                                            <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="price-ascending" asp-route-title="@ViewBag.Title">Price ascending</a>
+                                        </div>
+                                        <div class="collection-list-item">
+                                            <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="price-descending" asp-route-title="@ViewBag.Title">Best descending</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-side-bar">
+                <div class="row">
+                    <div class="side-bar-title">
+                        <div class="text col-lg-12">
+                            <h1>Filters</h1>
+                        </div>
+                        <div class="col-lg-1 x-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.SizeActive != null || ViewBag.ColorActive != null)
+                    {
+                        <div class="refine-by">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex align-items-center">
+                                    <h4>REFINE BY</h4>
+                                    <div class="d-flex mx-2">
+                                        @if (ViewBag.SizeActive != null)
+                                        {
+                                            <div class="selected-button d-flex">
+                                                <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="d-flex  align-items-center remove-button-filter">
+                                                    <span class="size-text">
+                                                        @ViewBag.SizeActive
+                                                    </span>
+                                                    <i class="bi bi-x"></i>
+                                                </a>
+                                            </div>
+                                        }
+
+                                        @if (ViewBag.ColorActive != null)
+                                        {
+                                            <div class="selected-button d-flex">
+                                                <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@ViewBag.SizeName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="d-flex align-items-center remove-button-filter">
+                                                    <span class="size-text">
+                                                        @ViewBag.ColorActive
+                                                    </span>
+                                                    <i class="bi bi-x"></i>
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
+                                    <a asp-action="index" asp-controller="product" asp-route-color=""  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="clear-all">Clear all</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @*@if (ViewBag.SizeActive != null)
+                {
+                    <div class="refine-by">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex align-items-center">
+                                <h4>REFINE BY</h4>
+                                <div class="selected-button d-flex">
+                                    <a href="" class="d-flex  align-items-center">
+                                        <span class="size-text">
+                                            @ViewBag.SizeActive
+                                        </span>
+                                        <i class="bi bi-x"></i>
+                                    </a>
+                                </div>
+                                <a href="" class="clear-all">Clear all</a>
+                            </div>
+                        </div>
+                    </div>
+                }*@
+                    <div class="all-dropdown">
+                        @*<div class="dropdown type">
+                        <div class="side-bar-dropdown-item">
+                            <div class="row">
+                                <div class="side-bar-dropdown-title col-lg-12">
+                                    <h1>Type</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-12 p-0">
+                                        <div class="collection-list-item">
+                                            <a href="" class="collection-list-item-button">Pants</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-12 p-0">
+                                        <div class="collection-list-item">
+                                            <a href="" class="collection-list-item-button">Shirt</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                        <div class="dropdown size">
+                            <div class="side-bar-dropdown-item">
+                                <div class="row">
+                                    <div class="side-bar-dropdown-title col-lg-12">
+                                        <h1>Size</h1>
+                                    </div>
+                                    <div class="row">
+                                        @foreach (var item in Model.Sizes)
+                                        {
+                                            <a class="select-item @(ViewBag.SizeActive==item.Name?"label-active":"")" asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@item.Name" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                                <div class="select-item-button d-flex justify-content-center align-items-center">
+                                                    @item.Name
+                                                </div>
+                                            </a>
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown colors">
+                            <div class="side-bar-dropdown-item">
+                                <div class="row">
+                                    <div class="side-bar-dropdown-title col-lg-12">
+                                        <h1>Colors</h1>
+                                    </div>
+                                    <div class="collection-list image-drop">
+                                        <div class="image-btn">
+                                            @foreach (var item in Model.Colors)
+                                            {
+                                                <a class="@(ViewBag.ColorActive==item.Name?"label-active image-label-active":"")" asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@ViewBag.SizeName" asp-route-color="@item.Name" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                                    <div class="image">
+                                                        <img src="~/uploads/colors/@item.Image" alt="">
+                                                    </div>
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sort-side-bar">
+                <div class="collection-list">
+
+                </div>
+                <div class="side-bar-title">
+                    <div class="text col-lg-12">
+                        <h1>Sort</h1>
+                    </div>
+                    <div class="col-lg-1 x-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sort-side-bar-items">
+                    <div class="sort-side-item">
+                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="isNew" asp-route-title="@ViewBag.Title">Newest</a>
+                    </div>
+                    <div class="sort-side-item">
+                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="best-selling" asp-route-title="@ViewBag.Title">Best Selling</a>
+                    </div>
+                    <div class="sort-side-item">
+                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="price-ascending" asp-route-title="@ViewBag.Title">Price ascending</a>
+                    </div>
+                    <div class="sort-side-item">
+                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-page="@ViewBag.PageIndex" asp-route-sort="price-descending" asp-route-title="@ViewBag.Title">Best descending</a>
+                    </div>
+                </div>
+            </div>
+
+            @if (ViewBag.SizeActive != null || ViewBag.ColorActive != null)
+            {
+                <div class="refine-by">
+                    <div class="row">
+                        <div class="col-lg-12 d-flex align-items-center">
+                            <h4>REFINE BY</h4>
+                            <div class="d-flex mx-2">
+                                @if (ViewBag.SizeActive != null)
+                                {
+                                    <div class="selected-button d-flex">
+                                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="d-flex  align-items-center remove-button-filter">
+                                            <span class="size-text">
+                                                @ViewBag.SizeActive
+                                            </span>
+                                            <i class="bi bi-x"></i>
+                                        </a>
+                                    </div>
+                                }
+
+                                @if (ViewBag.ColorActive != null)
+                                {
+                                    <div class="selected-button d-flex">
+                                        <a asp-action="index" asp-controller="product"  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="@ViewBag.SizeName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="d-flex align-items-center remove-button-filter">
+                                            <span class="size-text">
+                                                @ViewBag.ColorActive
+                                            </span>
+                                            <i class="bi bi-x"></i>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                            <a asp-action="index" asp-controller="product" asp-route-color=""  asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(ViewBag.Page)" asp-route-size="" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title" class="clear-all">Clear all</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section id="collection-card">
+        <div class="container reveal">
+            <div class="row">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-sep col-lg-4 ">
+                        <div class="card my-3">
+                            <span class="fav-side">
+                                @await Html.PartialAsync("_FavPartial", product)
+                            </span>
+                            <a asp-action="detail" asp-controller="product" asp-route-id="@product.Id" asp-route-colorId="@(ViewBag.ColorName==null?product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)">
+                                <div class="image">
+                                    @if (ViewBag.ColorName == null)
+                                    {
+                                        <img class="card-img-top" src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus == true)?.Image" alt="...">
+                                        <div class="hover-image">
+                                            <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus == false)?.Image" alt="">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <img class="card-img-top" src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus == true && x.Color.Name.Contains(ViewBag.ColorName))?.Image" alt="...">
+                                        <div class="hover-image">
+                                            <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus == false && x.Color.Name.Contains(ViewBag.ColorName))?.Image" alt="">
+                                        </div>
+                                    }
+
+                                </div>
+                            </a>
+                            <div class="collection-add-to-bag">
+                                <span>Add to Bag</span>
+                                <ul>
+                                    @foreach (var size in product.ProductSizes)
+                                    {
+                                        if (size.SizeCount == 0)
+                                        {
+                                            <li><a href="" class="noClick text-line">@size.Size.Name</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a class="add-basket" asp-action="index" asp-controller="cart" data-sizeId="@size.SizeId" data-id="@size.ProductId" data-colorId="@(ViewBag.ColorName==null?product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)">@size.Size.Name</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="about">
+                                    <div class="row">
+                                        <div class="col-item col-lg-9 col-md-9 col-sm-9 col-6">
+                                            <a asp-action="detail" asp-controller="product" asp-route-id="@product.Id" asp-route-colorId="@(ViewBag.ColorName==null?product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)" data-id="@product.Id">
+                                                @if (ViewBag.ColorName == null)
+                                                {
+                                                    @(product.Name) @Html.Raw(" in ") @(Model.ProductColors.FirstOrDefault(x => x.ProductId == product.Id).Color.Name.ToString());
+                                                }
+                                                else
+                                                {
+                                                    @(product.Name) @Html.Raw(" in ") @(ViewBag.ColorName);
+                                                }
+                                            </a>
+                                        </div>
+                                        <div class="col-item col-lg-3 col-md-3 col-sm-3 col-6 d-flex justify-content-end">
+                                            @if (product.Discount > 0)
+                                            {
+                                                <div class="pe-2 red-text text-line font-12"> $@product.SalePrice.ToString("#.00")</div>
+                                                <div class="text-dark font-12">
+                                                    $@((product.SalePrice - (product.SalePrice / 100) * product.Discount).ToString("#.00"))
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="price-black">
+                                                    $@product.SalePrice.ToString("#.00")
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="pagination">
+        <div class="container">
+            <div class="row">
+                <div class="col-sep col-lg-12">
+
+                    @if (Model.Products.HasPrev)
+                    {
+                        <div class="prev-button">
+                            <a asp-action="index" asp-controller="product" asp-route-genderId="@ViewBag.GenderId" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-page="@(Model.Products.TotalPage-1)" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                <span>
+                                    <i class="fa-solid fa-angle-left "></i>
+                                </span>
+                            </a>
+                            <div class="line">
+                            </div>
+                        </div>
+                    }
+
+                    @for (int i = 1; i <= Model.Products.TotalPage; i++)
+                    {
+                        @if (Model.Products.PageIndex - 1 != 0)
+                        {
+                            <div class="number">
+                                <a asp-action="index" asp-route-page="@i" asp-route-lovestyle="@ViewBag.LoveStyle" asp-route-genderId="@ViewBag.GenderId"  asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                    <span class="page-active">
+                                        @i
+                                    </span>
+                                </a>
+                                <div class="line page-active-bg">
+                                </div>
+                            </div>
+                        }
+                        @if (Model.Products.PageIndex == i)
+                        {
+                            <div class="number">
+                                <a asp-action="index" asp-route-page="@i" asp-route-lovestyle="@ViewBag.LoveStyle"  asp-route-genderId="@ViewBag.GenderId"  asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                    <span class="page-active">
+                                        @i
+                                    </span>
+                                </a>
+                                <div class="line page-active-bg">
+                                </div>
+                            </div>
+                        }
+                        @if (Model.Products.PageIndex + 1 == i)
+                        {
+                            <div class="number">
+                                <a asp-action="index" asp-route-page="@i" asp-route-lovestyle="@ViewBag.LoveStyle"   asp-route-genderId="@ViewBag.GenderId" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                    <span class="page-active">
+                                        @i
+                                    </span>
+                                </a>
+                                <div class="line page-active-bg">
+                                </div>
+                            </div>
+                        }
+                    }
+                    @if (Model.Products.HasNext)
+                    {
+                        <div class="next-button">
+                            <a asp-controller="product" asp-action="index" asp-route-lovestyle="@ViewBag.LoveStyle"  asp-route-genderId="@ViewBag.GenderId"  asp-route-page="@(Model.Products.PageIndex + 1)" asp-route-size="@ViewBag.SizeName" asp-route-color="@ViewBag.ColorName" asp-route-sort="@ViewBag.Sort" asp-route-title="@ViewBag.Title">
+                                <span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </span>
+                            </a>
+                            <div class="line">
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="description">
+        <div class="container">
+            <div class="row">
+                <div class="col-sep col-lg-12">
+                    <p>Shop DSTLD ﻿Women's Collection for everyday luxury essentials. Shop Leather Jackets, Premium Jeans, Cashmere Sweaters, and Tees. Shop DSTLD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+@section Scripts{
+
+
+    <!-- Collection Js -->
+    <script src="~/assets/js/collection/collection.js"></script>
+
+
+    <script>
+
+        
+    </script>
+}

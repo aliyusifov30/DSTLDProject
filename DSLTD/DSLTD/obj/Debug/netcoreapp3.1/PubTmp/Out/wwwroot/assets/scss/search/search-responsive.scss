@@ -1,0 +1,52 @@
+@media only screen and (max-width:1238px) {
+   
+    #collection-card{
+        .container{
+            .row{
+                .col-md-4{
+                    width: 33%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1173px) {
+    #search{
+        .result-of-search{
+            // width: 100% !important;
+            left: 40px !important;
+        }
+    }
+}
+
+
+@media only screen and (max-width:1040px) {
+    #search{
+        .result-of-search{
+            width: 100% !important;
+            left: 0px !important;
+        }
+    }
+
+
+}
+
+
+@media only screen and (max-width:768px) {
+
+    .col-sm-6{
+        width: 50% !important;
+    }
+    #search{
+        .result-of-search{
+            top: 137px;
+            .result-box-title{
+                flex-direction: column;
+            }
+        }
+    }
+    .result{
+        display: none !important;
+    }
+}

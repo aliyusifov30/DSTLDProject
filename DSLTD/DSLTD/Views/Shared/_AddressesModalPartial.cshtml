@@ -1,0 +1,97 @@
+﻿
+
+@model Address
+
+@{ 
+    Layout = null;
+}
+
+<div class="modal-header d-flex flex-column">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <h5 class="modal-title" id="exampleModalLabel">@ViewBag.Title</h5>
+    <p>Please fill in the information below:</p>
+</div>
+<div class="modal-body">
+    <form method="post" asp-action="@ViewBag.Action">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-input mb-3">
+                    <input asp-for="Addresses" class="form-control text-input" placeholder="Address">
+                    <label asp-for="Addresses">Address</label>
+                    <span class="text-danger" asp-validation-for="Addresses"></span>
+                </div>
+
+                <div class="form-input mb-3">
+                    <input asp-for="Aparment" class="form-control text-input" placeholder="Aparment">
+                    <label asp-for="Aparment">Aparment</label>
+                    <span class="text-danger" asp-validation-for="Aparment"></span>
+                </div>
+
+                <div class="form-input mb-3">
+                    <input asp-for="City" class="form-control text-input" placeholder="City">
+                    <label asp-for="City">City</label>
+                    <span class="text-danger" asp-validation-for="City"></span>
+                </div>
+
+                <div class="form-input mb-3">
+                    <input asp-for="Phone" class="form-control text-input" placeholder="Phone">
+                    <label asp-for="Phone">Phone</label>
+                    <span class="text-danger" asp-validation-for="Phone"></span>
+                </div>
+
+                <div class="items-form">
+                    <div class="form-group row d-flex justify-content-center align-items-center">
+                        <div class="region col-lg-6 mb-3">
+                            <div class="form-input select-btn">
+                                <select asp-for="State" class="form-select">
+                                    <option selected>United States</option>
+                                    <option>Azerbaijan</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="State"></span>
+                            </div>
+                        </div>
+                        <div class="zip-code col-lg-6 mb-3">
+                            <div class="form-input">
+                                <input asp-for="ZipCode" class="form-control text-input" placeholder="ZipCode">
+                                <label asp-for="ZipCode">ZipCode</label>
+                                <span class="text-danger" asp-validation-for="ZipCode"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region">
+                    <div class="form-input mb-3 select-btn">
+                        <select asp-for="Country" class="form-select">
+                            <option selected>Alabama</option>
+                            <option>California</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="Country"></span>
+                    </div>
+                </div>
+
+                <div class="form-check my-3">
+
+                    @if (Model != null && Model.IsMain)
+                    {
+                        <input asp-for="IsMain" class="form-check-input" id="flexCheckChecked" checked>
+                    }
+                    else
+                    {
+                        <input asp-for="IsMain" class="form-check-input" id="flexCheckChecked">
+                    }
+
+                    <label asp-for="IsMain" class="form-check-label" for="flexCheckChecked">
+                        Do Main
+                    </label>
+                    <span class="text-danger" asp-validation-for="IsMain"></span>
+                </div>
+
+                <div class="button-man d-flex justify-content-center align-items-center">
+                    <button type="submit" class="btn btn-black-white">@ViewBag.Button</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

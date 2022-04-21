@@ -1,0 +1,83 @@
+@media only screen and (max-width: 1140px) {
+  #collection-card .container .row .col-sep {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #collection-title-section .container {
+    padding: 0px !important;
+  }
+  #collection-title-section .collection-filter-sort {
+    padding-bottom: 0px !important;
+  }
+  #collection-title-section .collection-filter-sort .collection-filter {
+    border: 1px solid #bebebe;
+  }
+  #collection-title-section .collection-filter-sort .collection-filter ul {
+    display: none !important;
+  }
+  #collection-title-section .collection-filter-sort .collection-sort {
+    border-top: 1px solid #bebebe;
+    border-bottom: 1px solid #bebebe;
+    border-right: 1px solid #bebebe;
+    position: static !important;
+  }
+  #collection-title-section .collection-filter-sort .collection-sort .items {
+    display: none !important;
+  }
+  #collection-title-section .collection-filter-sort .collection-filter, #collection-title-section .collection-filter-sort .collection-sort {
+    padding: 0px !important;
+    width: 50%;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+  #collection-title-section .collection-filter-sort .collection-filter .collection-responsive-title, #collection-title-section .collection-filter-sort .collection-sort .collection-responsive-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #5e5e5e;
+    margin: 0px !important;
+  }
+  #collection-title-section .filter-side-bar {
+    width: 400px;
+    height: 417px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 600;
+    background-color: white;
+  }
+  #collection-title-section .filter-side-bar .row .sider-bar-title {
+    position: relative;
+  }
+  #collection-title-section .filter-side-bar .row .sider-bar-title .text h1 {
+    font-size: 20px !important;
+  }
+  #description p {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 641px) {
+  #collection-title-section .filter-side-bar {
+    width: 80%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 600;
+    background-color: white;
+  }
+  #collection-title-section .filter-side-bar .row .sider-bar-title {
+    position: relative;
+  }
+  #collection-title-section .filter-side-bar .row .sider-bar-title .text h1 {
+    font-size: 20px !important;
+  }
+}
+/*# sourceMappingURL=collection-responsive.css.map */

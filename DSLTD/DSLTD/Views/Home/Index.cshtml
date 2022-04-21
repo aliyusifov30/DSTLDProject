@@ -1,0 +1,233 @@
+﻿
+@model HomeViewModel
+@{
+    int i = 2;
+}
+
+<main>
+
+    <section id="first-home" class="buttons-change-section picture-section">
+        <div class="background-image">
+            <img class="big-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "first-home-big-image")?.Value" alt="">
+            <img class="small-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "first-home-small-image")?.Value" alt="">
+            <div class="container">
+                <div class="row">
+                    @foreach (Gender gender in Model.Genders)
+                    {
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 d-flex @(i%2==0?"justify-content-end":"")">
+                            <a asp-action="index" asp-controller="product" asp-route-genderId="@gender.Id" asp-route-lovestyle="true" asp-route-Title="Most Loved @gender.Name Collection"  class="btn btn-sep text-uppercase">
+                                SHOP @gender.Name
+                            </a>
+                        </div>
+                        i++;
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop-the-edit">
+        <div class="container">
+            <div class="row">
+                <h3 class="title">NEW AND TOP</h3>
+            </div>
+            <div class="owl-carousel owl-theme">
+                @foreach (var product in Model.NewAndTopProduct)
+                {
+                <div class="product-item">
+                    <span class="fav-side">
+                        @await Html.PartialAsync("_FavPartial", product)
+                    </span>
+                    <a asp-action="detail" asp-controller="product" asp-route-id="@product.Id" asp-route-colorId="@product.ProductImages.FirstOrDefault(x=>x.ProductId == product.Id).ColorId">
+                        <div class="item">
+                            <div class="card my-2 mx-1">
+                                <div class="image">
+                                    <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image"
+                                         class="card-img-top" alt="...">
+                                    <div class="hover-image">
+                                        <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.PosterStatus==false)?.Image"
+                                             alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="texts col-lg-8 col-md-9 col-sm-9 col-6">
+                                            <p>@product.Name in @product.ProductImages.FirstOrDefault(ps => ps.ProductId == product.Id).Color.Name</p>
+                                        </div>
+                                        <div class="prices col-lg-4 col-md-3 col-sm-3 col-6 d-flex justify-content-end">
+
+                                            @if (product.Discount > 0)
+                                            {
+                                                <span class="red-text text-line font-12">
+                                                    $@product.SalePrice
+                                                </span>
+
+                                                <span class="font-12 px-2 text-dark">
+                                                    $@((product.SalePrice - ((product.SalePrice / 100) * product.Discount)).ToString("#.00"))
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="font-12 text-dark px-1">
+                                                    $@product.SalePrice
+                                                </span>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                    
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="fresh-start" class="buttons-change-section picture-section">
+        <div class="background-image">
+
+            <img class="big-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "fresh-start-big-image")?.Value" alt="">
+            <img class="big-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "fresh-start-small-image")?.Value" alt="">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-center">Fresh Start</h1>
+                    </div>
+                    @foreach (Gender gender in Model.Genders)
+                    {
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 d-flex @(i%2==0?"justify-content-end":"")">
+                            <a asp-action="index" asp-controller="product" asp-route-genderId="@gender.Id" asp-route-sort="isNew" asp-route-Title="New @gender.Name Collection" class="btn btn-sep text-uppercase">
+                                SHOP @gender.Name
+                            </a>
+                        </div>
+                        i++;
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="denim-delivery" class="picture-section">
+        <div class="background-image">
+
+            <img class="big-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "denim-delivery-big-image")?.Value" alt="">
+            <img class="big-image" src="~/uploads/settings/@Model.Settings.FirstOrDefault(x=>x.Key == "denim-delivery-small-image")?.Value" alt="">
+
+            <div class="container">
+                <div class="row">
+                    <div class="item col-lg-12">
+                        <p>FALL COLLECTION</p>
+                        <h1 class="">Sort Gender</h1>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                        @foreach (Gender gender in Model.Genders)
+                        {
+                            <a asp-action="index" asp-controller="product" asp-route-genderId="@gender.Id" asp-route-Title="@gender.Name Collection" class="btn btn-sep text-uppercase">
+                                SHOP @gender.Name
+                            </a>
+                            i++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gender-type-arrival">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model.BestSaleCategories)
+                {
+                    <div class="item col-lg-4 col-md-4 col-sm-4">
+                        <h3>@item.Title</h3>
+                        <div class="card">
+                            <a asp-action="index" asp-controller="product" asp-route-categoryId="@item.CategoryId" asp-route-genderId="@item.GenderId" asp-route-title="@item.Title">
+                                <div class="image">
+                                    <img src="~/uploads/products/@item.Image"
+                                         class="card-img-top" alt="...">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="item col-lg-6 col-md-12 col-sm-12 col-12">
+                    <h3>SIGN UP & GET 20% OFF</h3>
+                    <span>Good emails, great denim</span>
+                </div>
+                <div class="input-side col-lg-6 col-md-12 col-sm-12 col-12">
+                    <form asp-action="SignUp" asp-controller="account" method="post">
+                        <div class="text">
+                            <input asp-for="Subscribe.Email" placeholder="Enter your email">
+                            <button type="submit" class="subscribe-btn"> <i class="fas fa-long-arrow-alt-right"></i> </button>
+                            <span class="text-danger" asp-validation-for="Subscribe.Email"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop-on-instagram">
+        <div class="container">
+            <div class="row">
+                <div class="title-item col-lg-12">
+                    <div class="title">
+                        <h3>
+                            SHOP DSTLD ON INSTAGRAM
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (ShopOnInstagram item in Model.ShopOnInstagrams)
+                {
+                    <div class="item col-lg-3" data-id="@item.Id">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#shop-on-instagram-modal">
+                            <div class="card">
+                                <div class="image">
+                                    <div class="black">
+                                        <div class="icon">
+                                            <i class="fab fa-instagram"></i>
+                                        </div>
+                                    </div>
+                                    <img class="img-fluid"
+                                         src="~/uploads/shop-on-instagram/@item.Image" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="index-modal">
+        <!-- Modal -->
+        <div class="modal fade" id="shop-on-instagram-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+@section Scripts{
+    <script src="~/assets/js/index/index.js"></script>
+    <script src="~/assets/js/index/index-owlcarousel.js"></script>
+    <script src="~/assets/js/abstract/changewidth.js"></script>
+}

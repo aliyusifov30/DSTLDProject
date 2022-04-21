@@ -1,0 +1,31 @@
+﻿    
+
+@model Product
+
+@if (Model.WishListItems.FirstOrDefault(x => x.ProductId == Model.Id)?.Product == Model && User.Identity.IsAuthenticated)
+{
+    <a asp-action="removewishlist" asp-controller="account" asp-route-id="@Model.Id"  asp-route-colorId="@(ViewBag.ColorName==null?Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)">
+        <div class="fav-btn wishlist-active">
+            <i class="bi bi-heart remove-wishlist" data-id="@Model.Id" data-colorId="@(ViewBag.ColorName==null?Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)"></i>
+        </div>
+    </a>
+}
+else
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="AddWishList" asp-controller="account" asp-route-id="@Model.Id" asp-route-colorId="@(ViewBag.ColorName==null?Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)">
+            <div class="fav-btn ">
+                <i class="bi bi-heart add-wishlist" data-id="@Model.Id" data-colorId="@(ViewBag.ColorName==null?Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).ColorId : Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true && x.Color.Name == ViewBag.ColorName).ColorId)"></i>
+            </div>
+        </a>
+    }
+    else
+    {
+        <a asp-action="login" asp-controller="account">
+            <div class="fav-btn" data-id="@Model.Id">
+                <i class="bi bi-heart"></i>
+            </div>
+        </a>
+    }
+}

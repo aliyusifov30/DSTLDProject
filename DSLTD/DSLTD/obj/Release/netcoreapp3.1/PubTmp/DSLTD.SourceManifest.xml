@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\SWIFT\Desktop\new\BackEnd\DSTLDBackEnd\DSLTD\DSLTD\obj\Release\netcoreapp3.1\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\SWIFT\Desktop\new\BackEnd\DSTLDBackEnd\DSLTD\DSLTD\obj\Release\netcoreapp3.1\PubTmp\EFSQLScripts\DSLTD.Models.DataContext.sql" />
+</sitemanifest>

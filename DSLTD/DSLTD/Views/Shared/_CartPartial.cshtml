@@ -1,0 +1,189 @@
+﻿
+
+@model List<BasketItemViewModel>
+
+
+@{
+    decimal totalPrice = 0;
+    decimal price = 0;
+}
+
+@if (Model.Count == 0)
+{
+    <section id="empty">
+        <div class="container">
+            <div class="row">
+                <div class="empty col-lg-12">
+                    <p>
+                        Your cart is empty
+                    </p>
+                    <p>
+                        Spend $50 more and get free shipping!
+                    </p>
+                    <a asp-action="index" asp-controller="product" asp-route-title="All Products" class="btn btn-black-white">
+                        Shop Our Product
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+else
+{
+    <section id="product-detail">
+        <div class="container">
+            <div class="page-title">
+                <div class="col-lg-12">
+                    <div class="cart-title">
+                        <h1>Cart</h1>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="cart-sub-title">
+                        <p>You are eligible for free shipping!</p>
+                    </div>
+                </div>
+            </div>
+            <form>
+                <div class="man-table">
+                    <div class="man-table-head">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-7">
+                            <h4>Product</h4>
+                        </div>
+                        <div class="quantity col-lg-3 col-md-3 col-sm-3 col-3 d-flex justify-content-center">
+                            <h4>Quantity</h4>
+                        </div>
+                        <div class="total col-lg-2 col-md-2 col-sm-2 col-2">
+                            <h4>Total</h4>
+                        </div>
+                    </div>
+                    <div class="man-table-body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="man-table-item d-flex">
+                                <div class="product-body col-lg-7 col-md-7 col-sm-7 col-12">
+                                    <div class="product-item">
+                                        <div class="product-image">
+                                            <img src="~/uploads/products/@item.PosterImage" alt="">
+                                        </div>
+                                        <div class="product-about">
+                                            <a asp-action="detail" asp-controller="product" asp-route-id="@item.ProductId">@item.Name in @item.ColorName</a>
+                                            <span class="size">@item.SizeName</span>
+                                            <div class="d-flex">
+                                                @if (item.Discount > 0)
+                                                {
+                                                    <div class="pe-3 red-text text-line font-12"> $@item.SalePrice.ToString("#.00")</div>
+                                                    <div class="text-dark font-12">
+                                                        $@((item.SalePrice - (item.SalePrice / 100) * item.Discount).ToString("#.00"))
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="price-black">
+                                                        $@item.SalePrice.ToString("#.00")
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
+                                        <div class="quantity-body-responsive col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <div class="quantity-item">
+                                                <div class="row">
+                                                    <div class="button-item col-lg-12">
+                                                        <div class="button">
+                                                            <a href="" class="cart-minus" data-id="@item.ProductId" data-sizeId="@item.SizeId" data-colorId="@item.ColorId">
+                                                                <i class="fas fa-minus"></i>
+                                                            </a>
+                                                            <input type="text" value="@item.Count">
+                                                            <a href="" class="cart-plus" data-colorId="@item.ColorId" data-id="@item.ProductId" data-sizeId="@item.SizeId">
+                                                                <i class="fas fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="remove-item">
+                                                            <a href="" class="remove-basket-item" data-id="@item.ProductId" data-sizeId="@item.SizeId" data-colorId="@item.ColorId">
+                                                                Remove
+                                                                <div class="underline-hover">
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="quantity-body col-lg-3 col-md-3 col-sm-3 col-3">
+                                    <div class="quantity-item">
+                                        <div class="row">
+                                            <div class="button-item col-lg-12">
+                                                <div class="button">
+                                                    <a href="" class="cart-minus" data-id="@item.ProductId" data-sizeId="@item.SizeId" data-colorId="@item.ColorId">
+                                                        <i class="fas fa-minus"></i>
+                                                    </a>
+                                                    <input type="text" value="@item.Count">
+                                                    <a href="" class="cart-plus" data-id="@item.ProductId" data-sizeId="@item.SizeId" data-colorId="@item.ColorId">
+                                                        <i class="fas fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="remove-item">
+                                                    <a href="" class="remove-basket-item" data-id="@item.ProductId" data-sizeId="@item.SizeId" data-colorId="@item.ColorId">
+                                                        Remove
+                                                        <div class="underline-hover">
+
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-body col-lg-2 col-md-2 col-sm-2 col-2">
+                                    <div class="product-total">
+                                        <span class="price-black">
+                                            @if (item.Discount > 0)
+                                            {
+                                                price = ((item.SalePrice - (item.SalePrice / 100) * item.Discount) * item.Count);
+                                                totalPrice += price;
+                                                <div class="text-dark prices">$@price.ToString("#.00")</div>
+                                            }
+                                            else
+                                            {
+                                                price = (item.SalePrice * item.Count);
+                                                totalPrice += price;
+                                                <div class="price-black">
+                                                    $@price.ToString("#.00")
+                                                </div>
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="help-item col-lg-6 col-md-6 col-sm-6 ">
+                        @*<div class="help-side">
+                                <h1>Add Order Note</h1>
+                                <textarea class="form-control" aria-label="With textarea" placeholder="How can we help you ?"></textarea>
+                            </div>*@
+                    </div>
+                    <div class="item col-lg-6 col-md-6 col-sm-6 ">
+                        <div class="checkout-side">
+                            <span class="price-black">Total: $@totalPrice.ToString("#.00")</span>
+                            <span class="extra-text">Shipping & taxes calculated at checkout</span>
+                            <div class="checkout-button col-lg-12">
+                                <!-- <a href=""><span class="text">CHECKOUT</span></a> -->
+                                <button asp-action="index" asp-controller="checkout">CHECKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+}

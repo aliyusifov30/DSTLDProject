@@ -1,0 +1,67 @@
+@media only screen and (max-width: 1140px) {
+  #product-detail .container {
+    padding: 0px 50px !important;
+  }
+  #product-detail .container .product-image img {
+    width: 90px !important;
+    height: 112px !important;
+  }
+}
+
+@media only screen and (max-width: 666px) {
+  #product-detail .container .row .help-item {
+    width: 100% !important;
+  }
+  #product-detail .container .row .help-item .help-side textarea {
+    width: 100% !important;
+  }
+  #product-detail .container .row .item {
+    width: 100% !important;
+  }
+  #product-detail .container .row .item .checkout-side {
+    width: 100%;
+  }
+  #product-detail .container .row .item .checkout-button {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  #product-detail .container {
+    padding: 0px 5px !important;
+  }
+  #product-detail .container .man-table-head {
+    display: none !important;
+  }
+  #product-detail .container .man-table-body .quantity-body, #product-detail .container .man-table-body .price-body {
+    display: none !important;
+  }
+  #product-detail .container .man-table-body .product-body {
+    width: 100% !important;
+  }
+  #product-detail .container .man-table-body .quantity-body-responsive, #product-detail .container .man-table-body .price-body-responsive {
+    display: block !important;
+  }
+  #product-detail .container .man-table-body .product-body {
+    position: relative;
+  }
+  #product-detail .container .man-table-body .product-body .quantity-body-responsive .button-item .button {
+    position: absolute;
+    top: 83px;
+    left: 97px;
+  }
+  #product-detail .container .man-table-body .product-body .product-about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    padding: 0px 10px !important;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+}
+/*# sourceMappingURL=cart-responsive.css.map */

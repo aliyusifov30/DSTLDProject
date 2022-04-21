@@ -1,0 +1,56 @@
+
+#men,#women{
+    .container{
+        padding: 0 80px;
+        .row{
+            .item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                // padding: 0px 170px;
+                h1{
+                    margin-top: 80px;
+                    margin-bottom: 40px;
+                    font-size: 30px;
+                    font-family: RecifeRegular;
+                    text-align: center;
+                }
+                .image{
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 1000px;
+                    margin: 35px auto;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width:1004px) {
+    #men,#women{
+        .container{
+            padding: 0 40px;
+        }
+       
+    }
+}
+
+@media only screen and (max-width:605px) {
+    #men,#women{
+        .container{
+            padding: 0 10px;
+        }
+        .image{
+            margin: 0px;
+        }
+        
+    }
+}

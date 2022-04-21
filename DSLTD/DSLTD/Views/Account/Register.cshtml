@@ -1,0 +1,49 @@
+﻿
+@model MemberRegisterViewModel
+
+<main>
+    <section id="register">
+        <div class="container">
+            <div class="row">
+                <div class="register-title text-center">
+                    <h2>Register</h2>
+                    <p>
+                        Please fill in the information below:
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <form asp-action="register" method="post">
+                    <div class="form-input my-3">
+                        <input asp-for="UserName" class="form-control" placeholder="UserName">
+                        <label asp-for="UserName">UserName</label>
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="form-input mb-3">
+                        <input asp-for="FullName" class="form-control" placeholder="FullName">
+                        <label asp-for="FullName">Full Name</label>
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+
+                    </div>
+                    <div class="form-input mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="Email">
+                        <label asp-for="Email">Email</label>
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-input mb-3">
+                        <input asp-for="Password" class="form-control" placeholder="Password">
+                        <label asp-for="Password">Password</label>
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <button type="submit" class="btn">CREATE MY ACCOUNT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+@section Scripts{
+    <script src="~/assets/js/abstract/form-input.js"></script>
+    @await Html.PartialAsync("_ValidationPartial")
+}

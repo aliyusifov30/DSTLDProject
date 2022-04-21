@@ -1,0 +1,79 @@
+#wishlist {
+  padding: 100px 0px;
+}
+
+#wishlist .container .row table .product {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wishlist .container .row table .product .image img {
+  width: 100px !important;
+  height: 120px !important;
+}
+
+#wishlist .container .row table .product a {
+  color: black;
+}
+
+#wishlist .container .row table .remove, #wishlist .container .row table .product, #wishlist .container .row table .row, #wishlist .container .row table .price, #wishlist .container .row table .date {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wishlist .container .row table .remove a {
+  color: black;
+}
+
+#wishlist .container .row table .remove a i {
+  font-size: 30px;
+  color: #c57474;
+}
+
+#wishlist .container .row table form button {
+  padding: 5px 0px;
+  width: 120px;
+}
+
+#empty {
+  height: 100vh;
+}
+
+#empty .container {
+  height: 100%;
+}
+
+#empty .container .row {
+  height: 100%;
+}
+
+#empty .container .row .col-lg-12 {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 844px) {
+  #wishlist .table-div {
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  #wishlist table tr th {
+    font-size: 12px;
+  }
+  #wishlist table tr td a h4, #wishlist table tr td a p {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=wish-list.css.map */

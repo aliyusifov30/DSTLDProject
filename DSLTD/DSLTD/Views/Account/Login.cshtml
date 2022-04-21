@@ -1,0 +1,78 @@
+﻿
+@model MemberViewModel
+
+<main>
+    <section id="login">
+        <div class="container">
+            <div class="login">
+                <div class="row">
+                    <div class="login-title col-lg-12">
+                        <h1>Login</h1>
+                        <p>Please enter your e-mail and password:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <form method="post">
+                        <div class="login-side">
+                            <div class="form-input ">
+                                <input asp-for="@Model.loginVM.Email" autocomplete="off" class="form-control" placeholder="Email">
+                                <label asp-for="@Model.loginVM.Email">Email</label>
+                                <span class="text-danger" asp-validation-for="@Model.loginVM.Email"></span>
+                            </div>
+                            <div class="form-input mt-4">
+                                <input asp-for="@Model.loginVM.Password" autocomplete="off" class="form-control " placeholder="Password">
+                                <label asp-for="@Model.loginVM.Password">Password</label>
+                                <a href="" class="forgot">Forgot Password?</a>
+                                <span class="text-danger" asp-validation-for="@Model.loginVM.Password"></span>
+                            </div> 
+                            <div class="text-danger" asp-validation-summary="ModelOnly" style="font-size:10px"></div>
+                            <button type="submit" class="btn">LOGIN</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="create row">
+                    <p>
+                        Don't have an account? <a asp-action="register" asp-controller="account">  Create one</a>
+                    </p>
+                </div>
+            </div>
+            <div class="recover">
+                <div class="row">
+                    <div class="login-title col-lg-12 text-center">
+                        <h1>Recover password</h1>
+                        <p>Please enter your email:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <form asp-action="forgot" method="post">
+                        <div class="login-side">
+                            <div class="form-input my-3">
+                                <input asp-for="@Model.forgotVM.Email" class="form-control" placeholder="Email">
+                                <label asp-for="@Model.forgotVM.Email">Email</label>
+                                <span class="text-danger" asp-validation-for="@Model.forgotVM.Email"></span>
+                            </div>
+                            <button type="submit" class="btn">LOGIN</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="create row">
+                    <p class="">
+                        Remember your password? <a href="" class="backlogin">Back to login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+@section Scripts{
+
+    <script src="~/assets/js/login-forgot/login-forgot.js"></script>
+    <script src="~/assets/js/abstract/form-input.js"></script>
+
+
+
+    @await Html.PartialAsync("_ValidationPartial") 
+}

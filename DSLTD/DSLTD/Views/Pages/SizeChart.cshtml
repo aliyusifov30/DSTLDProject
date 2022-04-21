@@ -1,0 +1,29 @@
+﻿
+@model List<Setting>
+    <main>
+        <section id="men">
+            <div class="container">
+                <div class="row">
+                    <div class="item col-lg-12">
+                        <h1>Men's Size Chart</h1>
+                        <div class="image">
+                            <img src="~/uploads/settings/@Model.FirstOrDefault(x=>x.Key=="men-size-chart-image")?.Value" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="women">
+            <div class="container">
+                <div class="row">
+                    <div class="item col-lg-12">
+                        <h1>Women's Size Chart</h1>
+                        <div class="image">
+                            <img src="~/uploads/settings/@Model.FirstOrDefault(x=>x.Key=="women-size-chart-image")?.Value" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
